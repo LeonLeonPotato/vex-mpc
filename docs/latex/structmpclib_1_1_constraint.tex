@@ -1,0 +1,63 @@
+\doxysection{mpclib::\+Constraint Struct Reference}
+\hypertarget{structmpclib_1_1_constraint}{}\label{structmpclib_1_1_constraint}\index{mpclib::Constraint@{mpclib::Constraint}}
+
+
+Represents a lower bound \& upper bound constraint on a variable.  
+
+
+
+
+{\ttfamily \+\#include $<$base\+\_\+model.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \doxymbox{\hyperlink{structmpclib_1_1_constraint_a37197160d7a81491f1887b7f6dfd60f5}{lower\+\_\+bound}}
+\begin{DoxyCompactList}\small\item\em Lower bound of the target variable -\/ the variable cannot be lower than this value. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{structmpclib_1_1_constraint_ac44f19f693e41e691ac1f82ac6043c8a}{upper\+\_\+bound}}
+\begin{DoxyCompactList}\small\item\em Upper bound of the target variable -\/ the variable cannot be higher than this value. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{structmpclib_1_1_constraint_a97eb3c80ab8728a0b411dc333ede96b1}{index}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a lower bound \& upper bound constraint on a variable. 
+
+This structure is used to define constraints on the state and action variables in the model. Each constraint has a lower and upper bound, as well as an index that indicates which variable it applies to. The index is used to map the constraint to the corresponding variable in the state or action vector.
+
+The constraints are used in the optimization problem to ensure that the solution respects the physical limits of the system being modeled. For example, a constraint on the velocity of a robot would ensure that the robot does not exceed its maximum speed. 
+
+\label{doc-variable-members}
+\Hypertarget{structmpclib_1_1_constraint_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structmpclib_1_1_constraint_a97eb3c80ab8728a0b411dc333ede96b1}\index{mpclib::Constraint@{mpclib::Constraint}!index@{index}}
+\index{index@{index}!mpclib::Constraint@{mpclib::Constraint}}
+\doxysubsubsection{\texorpdfstring{index}{index}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_constraint_a97eb3c80ab8728a0b411dc333ede96b1} 
+int mpclib::\+\+Constraint::\+index}
+
+\Hypertarget{structmpclib_1_1_constraint_a37197160d7a81491f1887b7f6dfd60f5}\index{mpclib::Constraint@{mpclib::Constraint}!lower\_bound@{lower\_bound}}
+\index{lower\_bound@{lower\_bound}!mpclib::Constraint@{mpclib::Constraint}}
+\doxysubsubsection{\texorpdfstring{lower\_bound}{lower\_bound}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_constraint_a37197160d7a81491f1887b7f6dfd60f5} 
+float mpclib::\+\+Constraint::\+lower\+\_\+bound}
+
+
+
+Lower bound of the target variable -\/ the variable cannot be lower than this value. 
+
+\Hypertarget{structmpclib_1_1_constraint_ac44f19f693e41e691ac1f82ac6043c8a}\index{mpclib::Constraint@{mpclib::Constraint}!upper\_bound@{upper\_bound}}
+\index{upper\_bound@{upper\_bound}!mpclib::Constraint@{mpclib::Constraint}}
+\doxysubsubsection{\texorpdfstring{upper\_bound}{upper\_bound}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_constraint_ac44f19f693e41e691ac1f82ac6043c8a} 
+float mpclib::\+\+Constraint::\+upper\+\_\+bound}
+
+
+
+Upper bound of the target variable -\/ the variable cannot be higher than this value. 
+
+
+
+The documentation for this struct was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+mpclib/\+models/\+\doxymbox{\hyperlink{base__model_8h}{base\+\_\+model.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,47 @@
+\doxysection{include/\+mpclib/\+utils.h File Reference}
+\hypertarget{utils_8h}{}\label{utils_8h}\index{include/mpclib/utils.h@{include/mpclib/utils.h}}
+
+
+Common types and mathematical helper functions for MPC.  
+
+
+{\ttfamily \+\#include "{}Eigen/\+\+Core"{}}\newline
+{\ttfamily \+\#include "{}Eigen/\+\+Sparse"{}}\newline
+{\ttfamily \+\#include "{}autodiff/\+forward/\+real.\+hpp"{}}\newline
+{\ttfamily \+\#include "{}autodiff/\+forward/\+real/\+eigen.\+hpp"{}}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \doxymbox{\hyperlink{namespacempclib}{mpclib}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{mpclib::\+\+ADVec}} = autodiff::\+\+Vector\+Xreal
+\begin{DoxyCompactList}\small\item\em Column vector for autodiff. Internal autodiff types are used. \end{DoxyCompactList}\item 
+using \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{mpclib::\+\+Vec}} = Eigen::\+\+VectorX$<$float$>$
+\begin{DoxyCompactList}\small\item\em Column vector for Eigen, floating point is used. \end{DoxyCompactList}\item 
+using \doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{mpclib::\+\+Mat}} = Eigen::\+\+MatrixX$<$float$>$
+\begin{DoxyCompactList}\small\item\em Dense matrix for autodiff. floating point is used. \end{DoxyCompactList}\item 
+using \doxymbox{\hyperlink{namespacempclib_ab74cf1ce906e538ba70a344c1db9dd5e}{mpclib::\+\+SPMat}} = Eigen::\+\+Sparse\+Matrix$<$float$>$
+\begin{DoxyCompactList}\small\item\em Sparse Matrix for Eigen, floating point is used. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T, typename = std::\+enable\+\_\+if\+\_\+t$<$std::\+is\+\_\+arithmetic$<$\+T$>$::\+value$>$$>$ }\\static T \doxymbox{\hyperlink{namespacempclib_ab6bbb63786365de7b0c0653c363b0fd8}{mpclib::\+sinc}} (T x)
+\begin{DoxyCompactList}\small\item\em Numerically stable normalized sinc function. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T, typename = std::\+enable\+\_\+if\+\_\+t$<$std::\+is\+\_\+arithmetic$<$\+T$>$::\+value$>$$>$ }\\static float \doxymbox{\hyperlink{namespacempclib_a9e0945d7e2b4199bfc9b0aa046b2bbae}{mpclib::\+average}} (const std::\+vector$<$ T $>$ \&vec)
+\begin{DoxyCompactList}\small\item\em Mean value of a sequence using Kahan compensated summation. \end{DoxyCompactList}\item 
+static float \doxymbox{\hyperlink{namespacempclib_acad7f29e2a365494c9ceb565877cca16}{mpclib::\+modfix}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em Positive‑range modulo operation. \end{DoxyCompactList}\item 
+static auto \doxymbox{\hyperlink{namespacempclib_ad44643cb78400d420c5f7d410baafea0}{mpclib::\+ad\+\_\+sinc}} (autodiff::\+real x)
+\begin{DoxyCompactList}\small\item\em Autodiff‑compatible \doxylink{namespacempclib_ab6bbb63786365de7b0c0653c363b0fd8}{sinc} using forward‑mode {\ttfamily autodiff::\+real}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Common types and mathematical helper functions for MPC. 
+
+\begin{DoxyAuthor}{Author}
+Leon 
+\end{DoxyAuthor}
+This header gathers frequently‑used type aliases (dense, sparse, and automatic‑differentiation vectors /\+ matrices) as well as mathematical helper functions. 

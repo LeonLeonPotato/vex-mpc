@@ -1,0 +1,318 @@
+\doxysection{mpclib::\+Model Class Reference}
+\hypertarget{classmpclib_1_1_model}{}\label{classmpclib_1_1_model}\index{mpclib::Model@{mpclib::Model}}
+
+
+Abstract base class for dynamic models used in model predictive control (MPC).  
+
+
+
+
+{\ttfamily \+\#include $<$base\+\_\+model.\+h$>$}
+
+Inheritance diagram for mpclib::\+Model:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classmpclib_1_1_model}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structmpclib_1_1_model_1_1_base_params}{Base\+Params}}
+\begin{DoxyCompactList}\small\item\em Represents the base parameters for a model. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual constexpr int \doxymbox{\hyperlink{classmpclib_1_1_model_a58739634bf1d03f0069db9751fc81c91}{state\+\_\+size}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns the number of states variables in the model. \end{DoxyCompactList}\item 
+virtual constexpr int \doxymbox{\hyperlink{classmpclib_1_1_model_a051a37c3e18fab91f0b8b4abcab1813e}{action\+\_\+size}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns the number of action variables in the model. \end{DoxyCompactList}\item 
+virtual const Base\+Params \& \doxymbox{\hyperlink{classmpclib_1_1_model_addde221b3a67756e29284989f2092ce9}{get\+\_\+params}} () const =0
+\begin{DoxyCompactList}\small\item\em Get the model parameters. \end{DoxyCompactList}\item 
+virtual \doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}} \doxymbox{\hyperlink{classmpclib_1_1_model_a139cee651ab6dfad56c9f7950340f559}{autodiff}} (const \doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}} \&x, const \doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}} \&u, double dt\+\_\+override) const =0
+\begin{DoxyCompactList}\small\item\em Predict the next state using the model dynamics, with automatic differentiation support. \end{DoxyCompactList}\item 
+virtual \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} \doxymbox{\hyperlink{classmpclib_1_1_model_a866622a1db5e0762e60a3149e5bea84f}{infer}} (const \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} \&x, const \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} \&u, float dt\+\_\+override) const =0
+\begin{DoxyCompactList}\small\item\em Predict the next state using the model dynamics. \end{DoxyCompactList}\item 
+virtual const std::\+vector$<$ \doxymbox{\hyperlink{structmpclib_1_1_constraint}{Constraint}} $>$ \& \doxymbox{\hyperlink{classmpclib_1_1_model_a04f2f7926590be1a727dff75d749883c}{state\+\_\+constraints}} () const
+\begin{DoxyCompactList}\small\item\em Get the state constraints. \end{DoxyCompactList}\item 
+virtual const std::\+vector$<$ \doxymbox{\hyperlink{structmpclib_1_1_constraint}{Constraint}} $>$ \& \doxymbox{\hyperlink{classmpclib_1_1_model_aee751c59a3b0303d138b3d7d2ab8283c}{action\+\_\+constraints}} () const
+\begin{DoxyCompactList}\small\item\em Get the action constraints. \end{DoxyCompactList}\item 
+virtual const std::\+vector$<$ \doxymbox{\hyperlink{structmpclib_1_1_constraint}{Constraint}} $>$ \& \doxymbox{\hyperlink{classmpclib_1_1_model_ae746b8ea21b5b541762f194675f48a0e}{general\+\_\+constraints}} () const
+\begin{DoxyCompactList}\small\item\em Get the general constraints. \end{DoxyCompactList}\item 
+virtual const \doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}} \& \doxymbox{\hyperlink{classmpclib_1_1_model_a18799373ec1fd577430cbdb1680ed1e6}{general\+\_\+constraints\+\_\+state\+\_\+matrix}} () const
+\begin{DoxyCompactList}\small\item\em Get the general state constraints matrix. \end{DoxyCompactList}\item 
+virtual const \doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}} \& \doxymbox{\hyperlink{classmpclib_1_1_model_ae871b8e8491358b8f0ea296c3ea5fd84}{general\+\_\+constraints\+\_\+action\+\_\+matrix}} () const
+\begin{DoxyCompactList}\small\item\em Get the general action constraints matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std::\+vector$<$ \doxymbox{\hyperlink{structmpclib_1_1_constraint}{Constraint}} $>$ \doxymbox{\hyperlink{classmpclib_1_1_model_a4fb3d775f251380598599f33b42469f4}{state\+\_\+constraints\+\_\+}}
+\begin{DoxyCompactList}\small\item\em List of state constraints at every timestep. \end{DoxyCompactList}\item 
+std::\+vector$<$ \doxymbox{\hyperlink{structmpclib_1_1_constraint}{Constraint}} $>$ \doxymbox{\hyperlink{classmpclib_1_1_model_af8ebb3ffde2ccf627172c3d433a7ae64}{action\+\_\+constraints\+\_\+}}
+\begin{DoxyCompactList}\small\item\em List of action constraints at every timestep. \end{DoxyCompactList}\item 
+std::\+vector$<$ \doxymbox{\hyperlink{structmpclib_1_1_constraint}{Constraint}} $>$ \doxymbox{\hyperlink{classmpclib_1_1_model_ab9057a3402491fed144d44e9b546e054}{general\+\_\+constraints\+\_\+}}
+\begin{DoxyCompactList}\small\item\em List of general constraints at every timestep. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}} \doxymbox{\hyperlink{classmpclib_1_1_model_a4453ac3e9d8266f41d2bf1bacf55a2ec}{general\+\_\+state\+\_\+matrix}}
+\begin{DoxyCompactList}\small\item\em General state constraint matrix, of dimensions $ [\mathrm{Number\,of\,general\,constraints}, \mathrm{state\,size}] $. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}} \doxymbox{\hyperlink{classmpclib_1_1_model_a7aecb7e3e6f09d323c64d2f9b7751028}{general\+\_\+action\+\_\+matrix}}
+\begin{DoxyCompactList}\small\item\em General action constraint matrix, of dimensions $ [\mathrm{Number\,of\,general\,constraints}, \mathrm{action\,size}] $. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract base class for dynamic models used in model predictive control (MPC). 
+
+This class defines the common interface for all dynamic models used in the MPC library. Derived classes must define the dimensionality of the state and action vectors, as well as the dynamics functions for simulation and automatic differentiation.
+
+The model also supports various types of constraints:\+
+\begin{DoxyItemize}
+\item {\bfseries{State constraints}}:\+ Variable-\/wise lower and upper bounds on the state vector.
+\item {\bfseries{Action constraints}}:\+ Variable-\/wise lower and upper bounds on the action vector.
+\item {\bfseries{General constraints}}:\+ Arbitrary linear constraints on the state and/\+or action vectors. 
+\end{DoxyItemize}
+
+\label{doc-func-members}
+\Hypertarget{classmpclib_1_1_model_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmpclib_1_1_model_aee751c59a3b0303d138b3d7d2ab8283c}\index{mpclib::Model@{mpclib::Model}!action\_constraints@{action\_constraints}}
+\index{action\_constraints@{action\_constraints}!mpclib::Model@{mpclib::Model}}
+\doxysubsubsection{\texorpdfstring{action\_constraints()}{action\_constraints()}}
+{\footnotesize\ttfamily \label{classmpclib_1_1_model_aee751c59a3b0303d138b3d7d2ab8283c} 
+virtual const std::\+vector$<$ \doxymbox{\hyperlink{structmpclib_1_1_constraint}{Constraint}} $>$ \& mpclib::\+\+Model::\+action\+\_\+constraints (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Get the action constraints. 
+
+\begin{DoxyReturn}{Returns}
+const std::\+vector$<$\+Constraint$>$\& -\/ constant reference to the list of action constraints at every timestep 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{structmpclib_1_1_constraint}{mpclib::\+\+Constraint} 
+\end{DoxySeeAlso}
+\Hypertarget{classmpclib_1_1_model_a051a37c3e18fab91f0b8b4abcab1813e}\index{mpclib::Model@{mpclib::Model}!action\_size@{action\_size}}
+\index{action\_size@{action\_size}!mpclib::Model@{mpclib::Model}}
+\doxysubsubsection{\texorpdfstring{action\_size()}{action\_size()}}
+{\footnotesize\ttfamily \label{classmpclib_1_1_model_a051a37c3e18fab91f0b8b4abcab1813e} 
+virtual constexpr int mpclib::\+\+Model::\+action\+\_\+size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [constexpr]}, {\ttfamily [pure virtual]}}
+
+
+
+Returns the number of action variables in the model. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily constexpr int} The size of the action vector 
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classmpclib_1_1_drive_model_a24c0a122053797f2615929d8a6ccb26f}{mpclib::\+\+Drive\+Model}}.
+
+\Hypertarget{classmpclib_1_1_model_a139cee651ab6dfad56c9f7950340f559}\index{mpclib::Model@{mpclib::Model}!autodiff@{autodiff}}
+\index{autodiff@{autodiff}!mpclib::Model@{mpclib::Model}}
+\doxysubsubsection{\texorpdfstring{autodiff()}{autodiff()}}
+{\footnotesize\ttfamily \label{classmpclib_1_1_model_a139cee651ab6dfad56c9f7950340f559} 
+virtual \doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}} mpclib::\+\+Model::\+autodiff (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}} \&}]{x}{, }\item[{const \doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}} \&}]{u}{, }\item[{double}]{dt\+\_\+override}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Predict the next state using the model dynamics, with automatic differentiation support. 
+
+This function is used to compute the jacobian of the model dynamics using autodiff.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Input state \\
+\hline
+{\em u} & Input action \\
+\hline
+{\em dt\+\_\+override} & Override the time step for this prediction. If negative, the default time step from the model parameters is used. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec} -\/ Predicted next state with the model dynamics given the input and action 
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_aa229d9835d10933ce887e54bb8bfdc8c}{mpclib::\+\+Differential\+Drive\+Model}}.
+
+\Hypertarget{classmpclib_1_1_model_ae746b8ea21b5b541762f194675f48a0e}\index{mpclib::Model@{mpclib::Model}!general\_constraints@{general\_constraints}}
+\index{general\_constraints@{general\_constraints}!mpclib::Model@{mpclib::Model}}
+\doxysubsubsection{\texorpdfstring{general\_constraints()}{general\_constraints()}}
+{\footnotesize\ttfamily \label{classmpclib_1_1_model_ae746b8ea21b5b541762f194675f48a0e} 
+virtual const std::\+vector$<$ \doxymbox{\hyperlink{structmpclib_1_1_constraint}{Constraint}} $>$ \& mpclib::\+\+Model::\+general\+\_\+constraints (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Get the general constraints. 
+
+\begin{DoxyReturn}{Returns}
+const std::\+vector$<$\+Constraint$>$\& -\/ constant reference to the list of general constraints at every timestep 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{structmpclib_1_1_constraint}{mpclib::\+\+Constraint} 
+\end{DoxySeeAlso}
+\Hypertarget{classmpclib_1_1_model_ae871b8e8491358b8f0ea296c3ea5fd84}\index{mpclib::Model@{mpclib::Model}!general\_constraints\_action\_matrix@{general\_constraints\_action\_matrix}}
+\index{general\_constraints\_action\_matrix@{general\_constraints\_action\_matrix}!mpclib::Model@{mpclib::Model}}
+\doxysubsubsection{\texorpdfstring{general\_constraints\_action\_matrix()}{general\_constraints\_action\_matrix()}}
+{\footnotesize\ttfamily \label{classmpclib_1_1_model_ae871b8e8491358b8f0ea296c3ea5fd84} 
+virtual const \doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}} \& mpclib::\+\+Model::\+general\+\_\+constraints\+\_\+action\+\_\+matrix (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Get the general action constraints matrix. 
+
+The general action constraints matrix is a matrix of dimensions $ [\mathrm{Number\,of\,general\,constraints}, \mathrm{action\,size}] $. Each row of the matrix corresponds to a general constraint, and each column corresponds to an action variable. In HPIPM, this matrix is multiplied by the action vector at every timestep.
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily const \doxylink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}\&} -\/ constant reference to the general action constraints matrix 
+\end{DoxyReturn}
+\Hypertarget{classmpclib_1_1_model_a18799373ec1fd577430cbdb1680ed1e6}\index{mpclib::Model@{mpclib::Model}!general\_constraints\_state\_matrix@{general\_constraints\_state\_matrix}}
+\index{general\_constraints\_state\_matrix@{general\_constraints\_state\_matrix}!mpclib::Model@{mpclib::Model}}
+\doxysubsubsection{\texorpdfstring{general\_constraints\_state\_matrix()}{general\_constraints\_state\_matrix()}}
+{\footnotesize\ttfamily \label{classmpclib_1_1_model_a18799373ec1fd577430cbdb1680ed1e6} 
+virtual const \doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}} \& mpclib::\+\+Model::\+general\+\_\+constraints\+\_\+state\+\_\+matrix (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Get the general state constraints matrix. 
+
+The general state constraints matrix is a matrix of dimensions $ [\mathrm{Number\,of\,general\,constraints}, \mathrm{state\,size}] $. Each row of the matrix corresponds to a general constraint, and each column corresponds to a state variable. In HPIPM, this matrix is multiplied by the state vector at every timestep.
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily const \doxylink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}\&} -\/ constant reference to the general state constraints matrix 
+\end{DoxyReturn}
+\Hypertarget{classmpclib_1_1_model_addde221b3a67756e29284989f2092ce9}\index{mpclib::Model@{mpclib::Model}!get\_params@{get\_params}}
+\index{get\_params@{get\_params}!mpclib::Model@{mpclib::Model}}
+\doxysubsubsection{\texorpdfstring{get\_params()}{get\_params()}}
+{\footnotesize\ttfamily \label{classmpclib_1_1_model_addde221b3a67756e29284989f2092ce9} 
+virtual const Base\+Params \& mpclib::\+\+Model::\+get\+\_\+params (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Get the model parameters. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily const \doxylink{structmpclib_1_1_model_1_1_base_params}{Base\+Params}\&} -\/ constant reference to the model parameters 
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_a3bd6e6d9dbdc92fff15bb6a7ada37898}{mpclib::\+\+Differential\+Drive\+Model}}.
+
+\Hypertarget{classmpclib_1_1_model_a866622a1db5e0762e60a3149e5bea84f}\index{mpclib::Model@{mpclib::Model}!infer@{infer}}
+\index{infer@{infer}!mpclib::Model@{mpclib::Model}}
+\doxysubsubsection{\texorpdfstring{infer()}{infer()}}
+{\footnotesize\ttfamily \label{classmpclib_1_1_model_a866622a1db5e0762e60a3149e5bea84f} 
+virtual \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} mpclib::\+\+Model::\+infer (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} \&}]{x}{, }\item[{const \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} \&}]{u}{, }\item[{float}]{dt\+\_\+override}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Predict the next state using the model dynamics. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Input state \\
+\hline
+{\em u} & Input action \\
+\hline
+{\em dt\+\_\+override} & Override the time step for this prediction. If negative, the default time step from the model parameters is used. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec} -\/ Predicted next state with the model dynamics given the input and action 
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_a3135dfe0ffd3d4831d51d047c2ae6f72}{mpclib::\+\+Differential\+Drive\+Model}}.
+
+\Hypertarget{classmpclib_1_1_model_a04f2f7926590be1a727dff75d749883c}\index{mpclib::Model@{mpclib::Model}!state\_constraints@{state\_constraints}}
+\index{state\_constraints@{state\_constraints}!mpclib::Model@{mpclib::Model}}
+\doxysubsubsection{\texorpdfstring{state\_constraints()}{state\_constraints()}}
+{\footnotesize\ttfamily \label{classmpclib_1_1_model_a04f2f7926590be1a727dff75d749883c} 
+virtual const std::\+vector$<$ \doxymbox{\hyperlink{structmpclib_1_1_constraint}{Constraint}} $>$ \& mpclib::\+\+Model::\+state\+\_\+constraints (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Get the state constraints. 
+
+\begin{DoxyReturn}{Returns}
+const std::\+vector$<$\+Constraint$>$\& constant reference to the list of state constraints at every timestep 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{structmpclib_1_1_constraint}{mpclib::\+\+Constraint} 
+\end{DoxySeeAlso}
+\Hypertarget{classmpclib_1_1_model_a58739634bf1d03f0069db9751fc81c91}\index{mpclib::Model@{mpclib::Model}!state\_size@{state\_size}}
+\index{state\_size@{state\_size}!mpclib::Model@{mpclib::Model}}
+\doxysubsubsection{\texorpdfstring{state\_size()}{state\_size()}}
+{\footnotesize\ttfamily \label{classmpclib_1_1_model_a58739634bf1d03f0069db9751fc81c91} 
+virtual constexpr int mpclib::\+\+Model::\+state\+\_\+size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [constexpr]}, {\ttfamily [pure virtual]}}
+
+
+
+Returns the number of states variables in the model. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily constexpr int} The size of the state vector 
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classmpclib_1_1_drive_model_ac6335c0380711e8d93fafd75cef84a72}{mpclib::\+\+Drive\+Model}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{classmpclib_1_1_model_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classmpclib_1_1_model_af8ebb3ffde2ccf627172c3d433a7ae64}\index{mpclib::Model@{mpclib::Model}!action\_constraints\_@{action\_constraints\_}}
+\index{action\_constraints\_@{action\_constraints\_}!mpclib::Model@{mpclib::Model}}
+\doxysubsubsection{\texorpdfstring{action\_constraints\_}{action\_constraints\_}}
+{\footnotesize\ttfamily \label{classmpclib_1_1_model_af8ebb3ffde2ccf627172c3d433a7ae64} 
+std::\+vector$<$\doxymbox{\hyperlink{structmpclib_1_1_constraint}{Constraint}}$>$ mpclib::\+\+Model::\+action\+\_\+constraints\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+List of action constraints at every timestep. 
+
+\Hypertarget{classmpclib_1_1_model_a7aecb7e3e6f09d323c64d2f9b7751028}\index{mpclib::Model@{mpclib::Model}!general\_action\_matrix@{general\_action\_matrix}}
+\index{general\_action\_matrix@{general\_action\_matrix}!mpclib::Model@{mpclib::Model}}
+\doxysubsubsection{\texorpdfstring{general\_action\_matrix}{general\_action\_matrix}}
+{\footnotesize\ttfamily \label{classmpclib_1_1_model_a7aecb7e3e6f09d323c64d2f9b7751028} 
+\doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}} mpclib::\+\+Model::\+general\+\_\+action\+\_\+matrix\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+General action constraint matrix, of dimensions $ [\mathrm{Number\,of\,general\,constraints}, \mathrm{action\,size}] $. 
+
+\Hypertarget{classmpclib_1_1_model_ab9057a3402491fed144d44e9b546e054}\index{mpclib::Model@{mpclib::Model}!general\_constraints\_@{general\_constraints\_}}
+\index{general\_constraints\_@{general\_constraints\_}!mpclib::Model@{mpclib::Model}}
+\doxysubsubsection{\texorpdfstring{general\_constraints\_}{general\_constraints\_}}
+{\footnotesize\ttfamily \label{classmpclib_1_1_model_ab9057a3402491fed144d44e9b546e054} 
+std::\+vector$<$\doxymbox{\hyperlink{structmpclib_1_1_constraint}{Constraint}}$>$ mpclib::\+\+Model::\+general\+\_\+constraints\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+List of general constraints at every timestep. 
+
+\Hypertarget{classmpclib_1_1_model_a4453ac3e9d8266f41d2bf1bacf55a2ec}\index{mpclib::Model@{mpclib::Model}!general\_state\_matrix@{general\_state\_matrix}}
+\index{general\_state\_matrix@{general\_state\_matrix}!mpclib::Model@{mpclib::Model}}
+\doxysubsubsection{\texorpdfstring{general\_state\_matrix}{general\_state\_matrix}}
+{\footnotesize\ttfamily \label{classmpclib_1_1_model_a4453ac3e9d8266f41d2bf1bacf55a2ec} 
+\doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}} mpclib::\+\+Model::\+general\+\_\+state\+\_\+matrix\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+General state constraint matrix, of dimensions $ [\mathrm{Number\,of\,general\,constraints}, \mathrm{state\,size}] $. 
+
+\Hypertarget{classmpclib_1_1_model_a4fb3d775f251380598599f33b42469f4}\index{mpclib::Model@{mpclib::Model}!state\_constraints\_@{state\_constraints\_}}
+\index{state\_constraints\_@{state\_constraints\_}!mpclib::Model@{mpclib::Model}}
+\doxysubsubsection{\texorpdfstring{state\_constraints\_}{state\_constraints\_}}
+{\footnotesize\ttfamily \label{classmpclib_1_1_model_a4fb3d775f251380598599f33b42469f4} 
+std::\+vector$<$\doxymbox{\hyperlink{structmpclib_1_1_constraint}{Constraint}}$>$ mpclib::\+\+Model::\+state\+\_\+constraints\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+List of state constraints at every timestep. 
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+mpclib/\+models/\+\doxymbox{\hyperlink{base__model_8h}{base\+\_\+model.\+h}}\end{DoxyCompactItemize}

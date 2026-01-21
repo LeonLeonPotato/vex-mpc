@@ -1,0 +1,139 @@
+\doxysection{mpclib::\+Drive\+Model Class Reference}
+\hypertarget{classmpclib_1_1_drive_model}{}\label{classmpclib_1_1_drive_model}\index{mpclib::DriveModel@{mpclib::DriveModel}}
+
+
+Base class for drive models in the library.  
+
+
+
+
+{\ttfamily \+\#include $<$base\+\_\+model.\+h$>$}
+
+Inheritance diagram for mpclib::\+Drive\+Model:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classmpclib_1_1_drive_model}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+constexpr int \doxymbox{\hyperlink{classmpclib_1_1_drive_model_ac6335c0380711e8d93fafd75cef84a72}{state\+\_\+size}} () const override
+\begin{DoxyCompactList}\small\item\em Returns the number of states variables in the model.    \end{DoxyCompactList}\item 
+constexpr int \doxymbox{\hyperlink{classmpclib_1_1_drive_model_a24c0a122053797f2615929d8a6ccb26f}{action\+\_\+size}} () const override
+\begin{DoxyCompactList}\small\item\em Returns the number of action variables in the model.    \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{classmpclib_1_1_model}{mpclib::\+\+Model}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual const Base\+Params \& \doxymbox{\hyperlink{classmpclib_1_1_model_addde221b3a67756e29284989f2092ce9}{get\+\_\+params}} () const =0
+\begin{DoxyCompactList}\small\item\em Get the model parameters. \end{DoxyCompactList}\item 
+virtual \doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}} \doxymbox{\hyperlink{classmpclib_1_1_model_a139cee651ab6dfad56c9f7950340f559}{autodiff}} (const \doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}} \&x, const \doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}} \&u, double dt\+\_\+override) const =0
+\begin{DoxyCompactList}\small\item\em Predict the next state using the model dynamics, with automatic differentiation support. \end{DoxyCompactList}\item 
+virtual \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} \doxymbox{\hyperlink{classmpclib_1_1_model_a866622a1db5e0762e60a3149e5bea84f}{infer}} (const \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} \&x, const \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} \&u, float dt\+\_\+override) const =0
+\begin{DoxyCompactList}\small\item\em Predict the next state using the model dynamics. \end{DoxyCompactList}\item 
+virtual const std::\+vector$<$ \doxymbox{\hyperlink{structmpclib_1_1_constraint}{Constraint}} $>$ \& \doxymbox{\hyperlink{classmpclib_1_1_model_a04f2f7926590be1a727dff75d749883c}{state\+\_\+constraints}} () const
+\begin{DoxyCompactList}\small\item\em Get the state constraints. \end{DoxyCompactList}\item 
+virtual const std::\+vector$<$ \doxymbox{\hyperlink{structmpclib_1_1_constraint}{Constraint}} $>$ \& \doxymbox{\hyperlink{classmpclib_1_1_model_aee751c59a3b0303d138b3d7d2ab8283c}{action\+\_\+constraints}} () const
+\begin{DoxyCompactList}\small\item\em Get the action constraints. \end{DoxyCompactList}\item 
+virtual const std::\+vector$<$ \doxymbox{\hyperlink{structmpclib_1_1_constraint}{Constraint}} $>$ \& \doxymbox{\hyperlink{classmpclib_1_1_model_ae746b8ea21b5b541762f194675f48a0e}{general\+\_\+constraints}} () const
+\begin{DoxyCompactList}\small\item\em Get the general constraints. \end{DoxyCompactList}\item 
+virtual const \doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}} \& \doxymbox{\hyperlink{classmpclib_1_1_model_a18799373ec1fd577430cbdb1680ed1e6}{general\+\_\+constraints\+\_\+state\+\_\+matrix}} () const
+\begin{DoxyCompactList}\small\item\em Get the general state constraints matrix. \end{DoxyCompactList}\item 
+virtual const \doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}} \& \doxymbox{\hyperlink{classmpclib_1_1_model_ae871b8e8491358b8f0ea296c3ea5fd84}{general\+\_\+constraints\+\_\+action\+\_\+matrix}} () const
+\begin{DoxyCompactList}\small\item\em Get the general action constraints matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr int \doxymbox{\hyperlink{classmpclib_1_1_drive_model_a35aca59cc748223127101bc7644261e1}{STATE\+\_\+\+SIZE}} = 5
+\item 
+static constexpr int \doxymbox{\hyperlink{classmpclib_1_1_drive_model_a71863fd9ab7f66df75e1d97b44d81f6a}{ACTION\+\_\+\+SIZE}} = 2
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \doxymbox{\hyperlink{classmpclib_1_1_model}{mpclib::\+\+Model}}}
+\begin{DoxyCompactItemize}
+\item 
+std::\+vector$<$ \doxymbox{\hyperlink{structmpclib_1_1_constraint}{Constraint}} $>$ \doxymbox{\hyperlink{classmpclib_1_1_model_a4fb3d775f251380598599f33b42469f4}{state\+\_\+constraints\+\_\+}}
+\begin{DoxyCompactList}\small\item\em List of state constraints at every timestep. \end{DoxyCompactList}\item 
+std::\+vector$<$ \doxymbox{\hyperlink{structmpclib_1_1_constraint}{Constraint}} $>$ \doxymbox{\hyperlink{classmpclib_1_1_model_af8ebb3ffde2ccf627172c3d433a7ae64}{action\+\_\+constraints\+\_\+}}
+\begin{DoxyCompactList}\small\item\em List of action constraints at every timestep. \end{DoxyCompactList}\item 
+std::\+vector$<$ \doxymbox{\hyperlink{structmpclib_1_1_constraint}{Constraint}} $>$ \doxymbox{\hyperlink{classmpclib_1_1_model_ab9057a3402491fed144d44e9b546e054}{general\+\_\+constraints\+\_\+}}
+\begin{DoxyCompactList}\small\item\em List of general constraints at every timestep. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}} \doxymbox{\hyperlink{classmpclib_1_1_model_a4453ac3e9d8266f41d2bf1bacf55a2ec}{general\+\_\+state\+\_\+matrix}}
+\begin{DoxyCompactList}\small\item\em General state constraint matrix, of dimensions $ [\mathrm{Number\,of\,general\,constraints}, \mathrm{state\,size}] $. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}} \doxymbox{\hyperlink{classmpclib_1_1_model_a7aecb7e3e6f09d323c64d2f9b7751028}{general\+\_\+action\+\_\+matrix}}
+\begin{DoxyCompactList}\small\item\em General action constraint matrix, of dimensions $ [\mathrm{Number\,of\,general\,constraints}, \mathrm{action\,size}] $. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base class for drive models in the library. 
+
+This model represents a typical ground vehicle or robot with basic drive dynamics. The state vector is of size 5 and may include variables such as position (x, y), orientation (theta), and velocity components. The action vector is of size 2 and may include accelerations or steering inputs.
+
+\begin{DoxyRefDesc}{Todo}
+\item[\doxymbox{\hyperlink{todo__todo000001}{Todo}}]Hardcoding state size and action size may need to change in the future, such as when slippage is implemented (requiring either 6 or 4 variables)\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{classmpclib_1_1_model}{mpclib::\+\+Model} 
+\end{DoxySeeAlso}
+
+
+\label{doc-func-members}
+\Hypertarget{classmpclib_1_1_drive_model_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmpclib_1_1_drive_model_a24c0a122053797f2615929d8a6ccb26f}\index{mpclib::DriveModel@{mpclib::DriveModel}!action\_size@{action\_size}}
+\index{action\_size@{action\_size}!mpclib::DriveModel@{mpclib::DriveModel}}
+\doxysubsubsection{\texorpdfstring{action\_size()}{action\_size()}}
+{\footnotesize\ttfamily \label{classmpclib_1_1_drive_model_a24c0a122053797f2615929d8a6ccb26f} 
+int mpclib::\+\+Drive\+Model::\+action\+\_\+size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the number of action variables in the model.    
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily constexpr int} The size of the action vector    
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{classmpclib_1_1_model_a051a37c3e18fab91f0b8b4abcab1813e}{mpclib::\+\+Model}}.
+
+\Hypertarget{classmpclib_1_1_drive_model_ac6335c0380711e8d93fafd75cef84a72}\index{mpclib::DriveModel@{mpclib::DriveModel}!state\_size@{state\_size}}
+\index{state\_size@{state\_size}!mpclib::DriveModel@{mpclib::DriveModel}}
+\doxysubsubsection{\texorpdfstring{state\_size()}{state\_size()}}
+{\footnotesize\ttfamily \label{classmpclib_1_1_drive_model_ac6335c0380711e8d93fafd75cef84a72} 
+int mpclib::\+\+Drive\+Model::\+state\+\_\+size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the number of states variables in the model.    
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily constexpr int} The size of the state vector    
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{classmpclib_1_1_model_a58739634bf1d03f0069db9751fc81c91}{mpclib::\+\+Model}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{classmpclib_1_1_drive_model_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classmpclib_1_1_drive_model_a71863fd9ab7f66df75e1d97b44d81f6a}\index{mpclib::DriveModel@{mpclib::DriveModel}!ACTION\_SIZE@{ACTION\_SIZE}}
+\index{ACTION\_SIZE@{ACTION\_SIZE}!mpclib::DriveModel@{mpclib::DriveModel}}
+\doxysubsubsection{\texorpdfstring{ACTION\_SIZE}{ACTION\_SIZE}}
+{\footnotesize\ttfamily \label{classmpclib_1_1_drive_model_a71863fd9ab7f66df75e1d97b44d81f6a} 
+int mpclib::\+\+Drive\+Model::\+\+ACTION\+\_\+\+SIZE = 2\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+\Hypertarget{classmpclib_1_1_drive_model_a35aca59cc748223127101bc7644261e1}\index{mpclib::DriveModel@{mpclib::DriveModel}!STATE\_SIZE@{STATE\_SIZE}}
+\index{STATE\_SIZE@{STATE\_SIZE}!mpclib::DriveModel@{mpclib::DriveModel}}
+\doxysubsubsection{\texorpdfstring{STATE\_SIZE}{STATE\_SIZE}}
+{\footnotesize\ttfamily \label{classmpclib_1_1_drive_model_a35aca59cc748223127101bc7644261e1} 
+int mpclib::\+\+Drive\+Model::\+\+STATE\+\_\+\+SIZE = 5\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+mpclib/\+models/\+\doxymbox{\hyperlink{base__model_8h}{base\+\_\+model.\+h}}\end{DoxyCompactItemize}

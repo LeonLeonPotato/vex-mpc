@@ -15,9 +15,3 @@ temp.log
 temp.errors
 *.ini
 .d/
-
-# mac
-.DS_Store
-
-# doxygen
-docs

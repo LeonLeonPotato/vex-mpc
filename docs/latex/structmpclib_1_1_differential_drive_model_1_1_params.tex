@@ -1,0 +1,85 @@
+\doxysection{mpclib::\+Differential\+Drive\+Model::\+Params Struct Reference}
+\hypertarget{structmpclib_1_1_differential_drive_model_1_1_params}{}\label{structmpclib_1_1_differential_drive_model_1_1_params}\index{mpclib::DifferentialDriveModel::Params@{mpclib::DifferentialDriveModel::Params}}
+
+
+Parameters specific to the differential drive robot model.  
+
+
+
+
+{\ttfamily \+\#include $<$diffdrive.\+h$>$}
+
+Inheritance diagram for mpclib::\+Differential\+Drive\+Model::\+Params:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{structmpclib_1_1_differential_drive_model_1_1_params}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \doxymbox{\hyperlink{structmpclib_1_1_differential_drive_model_1_1_params_aeda931dfad14a4de6be2f98a2df98f45}{width}}
+\begin{DoxyCompactList}\small\item\em Drivetrain width; the distance between the left and right drivetrains, in cm. Must be positive. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{structmpclib_1_1_differential_drive_model_1_1_params_afed372c2a2f45bc068c624ca27bec18b}{max\+\_\+speed}}
+\begin{DoxyCompactList}\small\item\em Maximum (absolute value) speed of one side of the drivetrain on the robot, in cm /\+ s. Must be positive. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{structmpclib_1_1_differential_drive_model_1_1_params_a8f4e2378bcc93859d84b3329ec7be5e5}{acceleration\+\_\+constant}}
+\begin{DoxyCompactList}\small\item\em How fast robot accelerates, in seconds. Larger -\/\texorpdfstring{$>$}{>} faster acceleration. Must be positive. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Parameters specific to the differential drive robot model. 
+
+These parameters define the physical and behavioral properties of the robot. They are used to configure the model\textquotesingle{}s dynamics and constraints. All parameters must be positive.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \doxylink{structmpclib_1_1_differential_drive_model_1_1_params_aeda931dfad14a4de6be2f98a2df98f45}{width}} & Width of the drivetrain, i.\+e., the distance between the left and right wheels (in cm). \\
+\hline
+{\em \doxylink{structmpclib_1_1_differential_drive_model_1_1_params_afed372c2a2f45bc068c624ca27bec18b}{max\+\_\+speed}} & Maximum allowed wheel speed for either side of the drivetrain (in cm/\+s). \\
+\hline
+{\em \doxylink{structmpclib_1_1_differential_drive_model_1_1_params_a8f4e2378bcc93859d84b3329ec7be5e5}{acceleration\+\_\+constant}} & A tuning parameter controlling how quickly the robot accelerates. Higher values mean faster response (in seconds).\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{structmpclib_1_1_model_1_1_base_params}{mpclib::\+\+Model::\+\+Base\+Params} 
+\end{DoxySeeAlso}
+
+
+\label{doc-variable-members}
+\Hypertarget{structmpclib_1_1_differential_drive_model_1_1_params_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structmpclib_1_1_differential_drive_model_1_1_params_a8f4e2378bcc93859d84b3329ec7be5e5}\index{mpclib::DifferentialDriveModel::Params@{mpclib::DifferentialDriveModel::Params}!acceleration\_constant@{acceleration\_constant}}
+\index{acceleration\_constant@{acceleration\_constant}!mpclib::DifferentialDriveModel::Params@{mpclib::DifferentialDriveModel::Params}}
+\doxysubsubsection{\texorpdfstring{acceleration\_constant}{acceleration\_constant}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_differential_drive_model_1_1_params_a8f4e2378bcc93859d84b3329ec7be5e5} 
+float mpclib::\+\+Differential\+Drive\+Model::\+\+Params::\+acceleration\+\_\+constant}
+
+
+
+How fast robot accelerates, in seconds. Larger -\/\texorpdfstring{$>$}{>} faster acceleration. Must be positive. 
+
+\Hypertarget{structmpclib_1_1_differential_drive_model_1_1_params_afed372c2a2f45bc068c624ca27bec18b}\index{mpclib::DifferentialDriveModel::Params@{mpclib::DifferentialDriveModel::Params}!max\_speed@{max\_speed}}
+\index{max\_speed@{max\_speed}!mpclib::DifferentialDriveModel::Params@{mpclib::DifferentialDriveModel::Params}}
+\doxysubsubsection{\texorpdfstring{max\_speed}{max\_speed}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_differential_drive_model_1_1_params_afed372c2a2f45bc068c624ca27bec18b} 
+float mpclib::\+\+Differential\+Drive\+Model::\+\+Params::\+max\+\_\+speed}
+
+
+
+Maximum (absolute value) speed of one side of the drivetrain on the robot, in cm /\+ s. Must be positive. 
+
+\Hypertarget{structmpclib_1_1_differential_drive_model_1_1_params_aeda931dfad14a4de6be2f98a2df98f45}\index{mpclib::DifferentialDriveModel::Params@{mpclib::DifferentialDriveModel::Params}!width@{width}}
+\index{width@{width}!mpclib::DifferentialDriveModel::Params@{mpclib::DifferentialDriveModel::Params}}
+\doxysubsubsection{\texorpdfstring{width}{width}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_differential_drive_model_1_1_params_aeda931dfad14a4de6be2f98a2df98f45} 
+float mpclib::\+\+Differential\+Drive\+Model::\+\+Params::\+width}
+
+
+
+Drivetrain width; the distance between the left and right drivetrains, in cm. Must be positive. 
+
+
+
+The documentation for this struct was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+mpclib/\+models/\+\doxymbox{\hyperlink{diffdrive_8h}{diffdrive.\+h}}\end{DoxyCompactItemize}

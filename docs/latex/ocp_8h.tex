@@ -1,0 +1,34 @@
+\doxysection{include/\+mpclib/\+ocp.h File Reference}
+\hypertarget{ocp_8h}{}\label{ocp_8h}\index{include/mpclib/ocp.h@{include/mpclib/ocp.h}}
+
+
+Wrapper class of the Optimal Control Problem Quadratic Programming (OCP-\/\+QP) solver using HPIPM.  
+
+
+{\ttfamily \+\#include "{}models/\+base\+\_\+model.\+h"{}}\newline
+{\ttfamily \+\#include "{}utils.\+h"{}}\newline
+{\ttfamily \+\#include "{}hpipm/\+hpipm\+\_\+s\+\_\+ocp\+\_\+qp.\+h"{}}\newline
+{\ttfamily \+\#include "{}hpipm/\+hpipm\+\_\+s\+\_\+ocp\+\_\+qp\+\_\+dim.\+h"{}}\newline
+{\ttfamily \+\#include "{}hpipm/\+hpipm\+\_\+s\+\_\+ocp\+\_\+qp\+\_\+sol.\+h"{}}\newline
+{\ttfamily \+\#include "{}hpipm/\+hpipm\+\_\+s\+\_\+ocp\+\_\+qp\+\_\+ipm.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_params}{mpclib::\+\+OCPParams}}
+\begin{DoxyCompactList}\small\item\em Structure holding configuration parameters for the OCP solver. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p}{mpclib::\+\+OCPQP}}
+\begin{DoxyCompactList}\small\item\em Class wrapping the OCP-\/\+QP solver. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \doxymbox{\hyperlink{namespacempclib}{mpclib}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Wrapper class of the Optimal Control Problem Quadratic Programming (OCP-\/\+QP) solver using HPIPM. 
+
+\begin{DoxyAuthor}{Author}
+Leon 
+\end{DoxyAuthor}
+This file defines the structures and methods for solving optimal control problems using the HPIPM library. It includes the definition of OCP parameters, the OCPQP class for managing the problem setup, and methods for relinearization, setting targets, and solving the problem. 

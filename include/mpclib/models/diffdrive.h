@@ -23,8 +23,10 @@ namespace mpclib {
  *
  * @see mpclib::DriveModel
  */
-class DifferentialDriveModel final : public DriveModel {
+class DifferentialDriveModel final : public Model {
 public:
+    static constexpr int STATE_SIZE = 5;
+    static constexpr int ACTION_SIZE = 2;
     static constexpr int GENERAL_CONSTRAINTS_SIZE = 2; ///< left wheel speed, right wheel speed
     static constexpr int STATE_CONSTRAINTS_SIZE = 0; ///< No state box constraints
     static constexpr int ACTION_CONSTRAINTS_SIZE = 0; ///< No action box constraints
@@ -56,6 +58,18 @@ public:
     */
     DifferentialDriveModel(const Params& params);
 
+    /** @brief Get the size of the state vector
+     * 
+     * @return `constexpr int` The size of the state vector
+     */
+    constexpr int state_size() const override { return STATE_SIZE; }
+
+    /** @brief Get the size of the action vector
+     * 
+     * @return `constexpr int` The size of the action vector
+     */
+    constexpr int action_size() const override { return ACTION_SIZE; }
+    
     /// @copydoc mpclib::Model::autodiff
     ADVec autodiff(const ADVec& x, const ADVec& u, double dt_override = -1) const override;
     /// @copydoc mpclib::Model::infer

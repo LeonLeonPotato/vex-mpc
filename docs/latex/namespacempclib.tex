@@ -1,0 +1,185 @@
+\doxysection{mpclib Namespace Reference}
+\hypertarget{namespacempclib}{}\label{namespacempclib}\index{mpclib@{mpclib}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structmpclib_1_1_constraint}{Constraint}}
+\begin{DoxyCompactList}\small\item\em Represents a lower bound \& upper bound constraint on a variable. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{classmpclib_1_1_model}{Model}}
+\begin{DoxyCompactList}\small\item\em Abstract base class for dynamic models used in model predictive control (MPC). \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{classmpclib_1_1_drive_model}{Drive\+Model}}
+\begin{DoxyCompactList}\small\item\em Base class for drive models in the library. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model}{Differential\+Drive\+Model}}
+\begin{DoxyCompactList}\small\item\em A model representing a differential drive robot. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_params}{OCPParams}}
+\begin{DoxyCompactList}\small\item\em Structure holding configuration parameters for the OCP solver. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p}{OCPQP}}
+\begin{DoxyCompactList}\small\item\em Class wrapping the OCP-\/\+QP solver. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}} = autodiff::\+\+Vector\+Xreal
+\begin{DoxyCompactList}\small\item\em Column vector for autodiff. Internal autodiff types are used. \end{DoxyCompactList}\item 
+using \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} = Eigen::\+\+VectorX$<$float$>$
+\begin{DoxyCompactList}\small\item\em Column vector for Eigen, floating point is used. \end{DoxyCompactList}\item 
+using \doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}} = Eigen::\+\+MatrixX$<$float$>$
+\begin{DoxyCompactList}\small\item\em Dense matrix for autodiff. floating point is used. \end{DoxyCompactList}\item 
+using \doxymbox{\hyperlink{namespacempclib_ab74cf1ce906e538ba70a344c1db9dd5e}{SPMat}} = Eigen::\+\+Sparse\+Matrix$<$float$>$
+\begin{DoxyCompactList}\small\item\em Sparse Matrix for Eigen, floating point is used. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T, typename = std::\+enable\+\_\+if\+\_\+t$<$std::\+is\+\_\+arithmetic$<$\+T$>$::\+value$>$$>$ }\\static T \doxymbox{\hyperlink{namespacempclib_ab6bbb63786365de7b0c0653c363b0fd8}{sinc}} (T x)
+\begin{DoxyCompactList}\small\item\em Numerically stable normalized sinc function. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T, typename = std::\+enable\+\_\+if\+\_\+t$<$std::\+is\+\_\+arithmetic$<$\+T$>$::\+value$>$$>$ }\\static float \doxymbox{\hyperlink{namespacempclib_a9e0945d7e2b4199bfc9b0aa046b2bbae}{average}} (const std::\+vector$<$ T $>$ \&vec)
+\begin{DoxyCompactList}\small\item\em Mean value of a sequence using Kahan compensated summation. \end{DoxyCompactList}\item 
+static float \doxymbox{\hyperlink{namespacempclib_acad7f29e2a365494c9ceb565877cca16}{modfix}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em Positive‑range modulo operation. \end{DoxyCompactList}\item 
+static auto \doxymbox{\hyperlink{namespacempclib_ad44643cb78400d420c5f7d410baafea0}{ad\+\_\+sinc}} (autodiff::\+real x)
+\begin{DoxyCompactList}\small\item\em Autodiff‑compatible \doxylink{namespacempclib_ab6bbb63786365de7b0c0653c363b0fd8}{sinc} using forward‑mode {\ttfamily autodiff::\+real}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{namespacempclib_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}\index{mpclib@{mpclib}!ADVec@{ADVec}}
+\index{ADVec@{ADVec}!mpclib@{mpclib}}
+\doxysubsubsection{\texorpdfstring{ADVec}{ADVec}}
+{\footnotesize\ttfamily \label{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d} 
+using \doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{mpclib::\+\+ADVec}} = autodiff::\+\+Vector\+Xreal}
+
+
+
+Column vector for autodiff. Internal autodiff types are used. 
+
+\Hypertarget{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}\index{mpclib@{mpclib}!Mat@{Mat}}
+\index{Mat@{Mat}!mpclib@{mpclib}}
+\doxysubsubsection{\texorpdfstring{Mat}{Mat}}
+{\footnotesize\ttfamily \label{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f} 
+using \doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{mpclib::\+\+Mat}} = Eigen::\+\+MatrixX$<$float$>$}
+
+
+
+Dense matrix for autodiff. floating point is used. 
+
+\Hypertarget{namespacempclib_ab74cf1ce906e538ba70a344c1db9dd5e}\index{mpclib@{mpclib}!SPMat@{SPMat}}
+\index{SPMat@{SPMat}!mpclib@{mpclib}}
+\doxysubsubsection{\texorpdfstring{SPMat}{SPMat}}
+{\footnotesize\ttfamily \label{namespacempclib_ab74cf1ce906e538ba70a344c1db9dd5e} 
+using \doxymbox{\hyperlink{namespacempclib_ab74cf1ce906e538ba70a344c1db9dd5e}{mpclib::\+\+SPMat}} = Eigen::\+\+Sparse\+Matrix$<$float$>$}
+
+
+
+Sparse Matrix for Eigen, floating point is used. 
+
+\Hypertarget{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}\index{mpclib@{mpclib}!Vec@{Vec}}
+\index{Vec@{Vec}!mpclib@{mpclib}}
+\doxysubsubsection{\texorpdfstring{Vec}{Vec}}
+{\footnotesize\ttfamily \label{namespacempclib_a081fd055da31c51d378a3d20ad4419a8} 
+using \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{mpclib::\+\+Vec}} = Eigen::\+\+VectorX$<$float$>$}
+
+
+
+Column vector for Eigen, floating point is used. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{namespacempclib_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacempclib_ad44643cb78400d420c5f7d410baafea0}\index{mpclib@{mpclib}!ad\_sinc@{ad\_sinc}}
+\index{ad\_sinc@{ad\_sinc}!mpclib@{mpclib}}
+\doxysubsubsection{\texorpdfstring{ad\_sinc()}{ad\_sinc()}}
+{\footnotesize\ttfamily \label{namespacempclib_ad44643cb78400d420c5f7d410baafea0} 
+auto mpclib::\+ad\+\_\+sinc (\begin{DoxyParamCaption}\item[{autodiff::\+real}]{x}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Autodiff‑compatible \doxylink{namespacempclib_ab6bbb63786365de7b0c0653c363b0fd8}{sinc} using forward‑mode {\ttfamily autodiff::\+real}. 
+
+Identical definition to \doxylink{namespacempclib_ab6bbb63786365de7b0c0653c363b0fd8}{sinc} but operates on {\ttfamily autodiff::\+real} so that derivatives are propagated automatically.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Input value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$ \mathrm{sinc}(x) $ with autodiff support. 
+\end{DoxyReturn}
+\Hypertarget{namespacempclib_a9e0945d7e2b4199bfc9b0aa046b2bbae}\index{mpclib@{mpclib}!average@{average}}
+\index{average@{average}!mpclib@{mpclib}}
+\doxysubsubsection{\texorpdfstring{average()}{average()}}
+{\footnotesize\ttfamily \label{namespacempclib_a9e0945d7e2b4199bfc9b0aa046b2bbae} 
+template$<$typename T, typename = std::\+enable\+\_\+if\+\_\+t$<$std::\+is\+\_\+arithmetic$<$\+T$>$::\+value$>$$>$ \\
+float mpclib::\+average (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ T $>$ \&}]{vec}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Mean value of a sequence using Kahan compensated summation. 
+
+The function returns the arithmetic mean of the elements in {\ttfamily vec} while mitigating the loss of significance caused by finite‑precision accumulation.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Arithmetic type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & Container with the input samples. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Mean of the samples, or {\ttfamily 0} if {\ttfamily vec} is empty. 
+\end{DoxyReturn}
+\Hypertarget{namespacempclib_acad7f29e2a365494c9ceb565877cca16}\index{mpclib@{mpclib}!modfix@{modfix}}
+\index{modfix@{modfix}!mpclib@{mpclib}}
+\doxysubsubsection{\texorpdfstring{modfix()}{modfix()}}
+{\footnotesize\ttfamily \label{namespacempclib_acad7f29e2a365494c9ceb565877cca16} 
+float mpclib::\+modfix (\begin{DoxyParamCaption}\item[{float}]{x}{, }\item[{float}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Positive‑range modulo operation. 
+
+Returns a value in the half‑open interval $ [0, y) $ even when {\ttfamily x} is negative.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Dividend. \\
+\hline
+{\em y} & Divisor (period). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily x} modulo {\ttfamily y} mapped to positive range. 
+\end{DoxyReturn}
+\Hypertarget{namespacempclib_ab6bbb63786365de7b0c0653c363b0fd8}\index{mpclib@{mpclib}!sinc@{sinc}}
+\index{sinc@{sinc}!mpclib@{mpclib}}
+\doxysubsubsection{\texorpdfstring{sinc()}{sinc()}}
+{\footnotesize\ttfamily \label{namespacempclib_ab6bbb63786365de7b0c0653c363b0fd8} 
+template$<$typename T, typename = std::\+enable\+\_\+if\+\_\+t$<$std::\+is\+\_\+arithmetic$<$\+T$>$::\+value$>$$>$ \\
+T mpclib::\+sinc (\begin{DoxyParamCaption}\item[{T}]{x}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Numerically stable normalized sinc function. 
+
+Computes $ \mathrm{sinc}(x) = \sin(x)/x $. ~\newline
+ For $ |x| < 10^{-3} $ a 4th‑order Taylor series approximation is returned to avoid catastrophic cancellation:\+   \[    \mathrm{sinc}(x) \approx 1 - \frac{x^{2}}{6}.
+\]
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Arithmetic type (integral or floating point). \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Input value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$ \mathrm{sinc}(x) $. 
+\end{DoxyReturn}

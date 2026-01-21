@@ -156,30 +156,4 @@ protected:
     Mat general_state_matrix; ///< General state constraint matrix, of dimensions \f$ [\mathrm{Number\,of\,general\,constraints}, \mathrm{state\,size}] \f$
     Mat general_action_matrix; ///< General action constraint matrix, of dimensions \f$ [\mathrm{Number\,of\,general\,constraints}, \mathrm{action\,size}] \f$
 };
-
-/**
- * @brief Base class for drive models in the library.
- *
- * @details
- * This model represents a typical ground vehicle or robot with basic drive dynamics.
- * The state vector is of size 5 and may include variables such as position (x, y),
- * orientation (theta), and velocity components. The action vector is of size 2 and
- * may include accelerations or steering inputs.
- *
- * @todo 
- * Hardcoding state size and action size may need to change in the future, such as when
- * slippage is implemented (requiring either 6 or 4 variables)
- *
- * @see mpclib::Model
- */
-class DriveModel : public Model {
-public:
-    static constexpr int STATE_SIZE = 5; // x, y, theta, [velocities]
-    static constexpr int ACTION_SIZE = 2; // [accelerations]
-
-    /// @copydoc mpclib::Model::state_size()
-    constexpr int state_size() const override { return STATE_SIZE; }
-    /// @copydoc mpclib::Model::action_size()
-    constexpr int action_size() const override { return ACTION_SIZE; }
-};
 }

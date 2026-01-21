@@ -1,0 +1,41 @@
+\doxysection{diffdrive.\+h}
+\hypertarget{diffdrive_8h_source}{}\label{diffdrive_8h_source}\index{include/mpclib/models/diffdrive.h@{include/mpclib/models/diffdrive.h}}
+\doxymbox{\hyperlink{diffdrive_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{base__model_8h}{base\_model.h}}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespacempclib}{mpclib}}\ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_ae64eba0cf1ef704e0f5e79660c0072aa}{DifferentialDriveModel}}\ final\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classmpclib_1_1_drive_model}{DriveModel}}\ \{}
+\DoxyCodeLine{00027\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_a207f8a9ea363e795b1aee9fc73e9f213}{GENERAL\_CONSTRAINTS\_SIZE}}\ =\ 2;\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_a48bbb7faed549d94c98d7083cbb83291}{STATE\_CONSTRAINTS\_SIZE}}\ =\ 0;\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_af1aed835f4954bbe8dae23cb2d7f2718}{ACTION\_CONSTRAINTS\_SIZE}}\ =\ 0;\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structmpclib_1_1_differential_drive_model_1_1_params}{Params}}\ :\ \doxymbox{\hyperlink{structmpclib_1_1_model_1_1_base_params}{BaseParams}}\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structmpclib_1_1_differential_drive_model_1_1_params_aeda931dfad14a4de6be2f98a2df98f45}{width}};\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structmpclib_1_1_differential_drive_model_1_1_params_afed372c2a2f45bc068c624ca27bec18b}{max\_speed}};\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structmpclib_1_1_differential_drive_model_1_1_params_a8f4e2378bcc93859d84b3329ec7be5e5}{acceleration\_constant}};\ }
+\DoxyCodeLine{00050\ \ \ \ \ \};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00057\ \ \ \ \ \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_ae64eba0cf1ef704e0f5e79660c0072aa}{DifferentialDriveModel}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structmpclib_1_1_differential_drive_model_1_1_params}{Params}}\&\ \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_a213c6ffd0b71e49b590ad377d5b9fdae}{params}});}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00060\ \ \ \ \ \doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}}\ \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_aa229d9835d10933ce887e54bb8bfdc8c}{autodiff}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}}\&\ x,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}}\&\ u,\ \textcolor{keywordtype}{double}\ dt\_override\ =\ -\/1)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00062\ \ \ \ \ \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}}\ \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_a3135dfe0ffd3d4831d51d047c2ae6f72}{infer}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}}\&\ x,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}}\&\ u,\ \textcolor{keywordtype}{float}\ dt\_override\ =\ -\/1)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structmpclib_1_1_differential_drive_model_1_1_params}{Params}}\&\ \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_a213c6ffd0b71e49b590ad377d5b9fdae}{params}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ params\_;\ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structmpclib_1_1_model_1_1_base_params}{BaseParams}}\&\ \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_a3bd6e6d9dbdc92fff15bb6a7ada37898}{get\_params}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ params\_;\ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_a89e9a212a8edda836ebda272ad4b8f08}{set\_params}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structmpclib_1_1_differential_drive_model_1_1_params}{Params}}\&\ \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_a213c6ffd0b71e49b590ad377d5b9fdae}{params}})\ \{\ params\_\ =\ \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_a213c6ffd0b71e49b590ad377d5b9fdae}{params}};\ resync\_from\_params();\ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00084\ \ \ \ \ Params\ params\_;\ }
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{void}\ resync\_from\_params();}
+\DoxyCodeLine{00096\ \};}
+\DoxyCodeLine{00097\ \}}
+
+\end{DoxyCode}

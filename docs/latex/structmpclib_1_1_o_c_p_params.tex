@@ -1,0 +1,190 @@
+\doxysection{mpclib::\+OCPParams Struct Reference}
+\hypertarget{structmpclib_1_1_o_c_p_params}{}\label{structmpclib_1_1_o_c_p_params}\index{mpclib::OCPParams@{mpclib::OCPParams}}
+
+
+Structure holding configuration parameters for the OCP solver.  
+
+
+
+
+{\ttfamily \+\#include $<$ocp.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum class \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_params_a40bedb8a3439389bba54c469a332d848}{Warm\+Start\+Level}} \{ \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_params_a40bedb8a3439389bba54c469a332d848ab50339a10e1de285ac99d4c3990b8693}{NONE}} = 0
+, \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_params_a40bedb8a3439389bba54c469a332d848a2b848a8cc886d253d21a77c43cd50aae}{STATE}} = 1
+, \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_params_a40bedb8a3439389bba54c469a332d848a50ba3acc5acde3be5b41732899836271}{STATE\+\_\+\+AND\+\_\+\+INPUT}} = 2
+, \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_params_a40bedb8a3439389bba54c469a332d848aba7de5bc6888294e5884b024a4c894f1}{FULL}} = 3
+ \}
+\begin{DoxyCompactList}\small\item\em Enum defining warm start levels. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_params_a9d3f0aca306fbebc7729b91a75a497db}{N}}
+\begin{DoxyCompactList}\small\item\em Number of time steps in the OCP problem. This means there are N actions \& N states to predict excluding the initial state. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}} \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_params_ac53a6f20608d6b071d5b597ddc57384e}{Q1}}
+\begin{DoxyCompactList}\small\item\em State cost for timestep 1 ( $ x_1 $). \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}} \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_params_a5b9ca55230204ae8fa8a69309c08c5e2}{Q}}
+\begin{DoxyCompactList}\small\item\em State cost for intermediate timesteps 2 … N‑1. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}} \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_params_a6e7332fc5140de5aa13c5c73cea1cab9}{Qf}}
+\begin{DoxyCompactList}\small\item\em State cost for timestep N ( $ x_N $). \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}} \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_params_aeda9950fba2b4da3d4112cf130b074bd}{R0}}
+\begin{DoxyCompactList}\small\item\em Action cost for timestep 0 ( $ u_0 $). \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}} \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_params_a012c0e0e5a506d6f94ab48393067a567}{R}}
+\begin{DoxyCompactList}\small\item\em Action cost for intermediate timesteps 1 … N‑2. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}} \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_params_a28ff3bc462b2928a50bdce2559b008bd}{Rf}}
+\begin{DoxyCompactList}\small\item\em Action cost for timestep ( $ u_{N-1} $). \end{DoxyCompactList}\item 
+enum \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_params_a40bedb8a3439389bba54c469a332d848}{mpclib::\+\+OCPParams::\+\+Warm\+Start\+Level}} \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_params_a06dae6dd9c1a5b6d7d24e5c4b60f9b50}{warm\+\_\+start\+\_\+level}} = \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_params_a40bedb8a3439389bba54c469a332d848a2b848a8cc886d253d21a77c43cd50aae}{Warm\+Start\+Level::\+\+STATE}}
+\begin{DoxyCompactList}\small\item\em Default – reuse state only. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_params_ae0cda9ed45b1702bfe9967c114ebb603}{iterations}} = 5
+\begin{DoxyCompactList}\small\item\em Maximum number of iterations per solve call. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure holding configuration parameters for the OCP solver. 
+
+\begin{DoxyNote}{Note}
+All matricies are expected to be in the correct shape. This means that all state cost (Q) matricies are of size (state\+\_\+size, state\+\_\+size), all action cost (R) matricies are of size (action\+\_\+size, action\+\_\+size), and all state-\/action correlation (S) matricies are of size (state\+\_\+size, action\+\_\+size). 
+\end{DoxyNote}
+
+
+\label{doc-enum-members}
+\Hypertarget{structmpclib_1_1_o_c_p_params_doc-enum-members}
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{structmpclib_1_1_o_c_p_params_a40bedb8a3439389bba54c469a332d848}\index{mpclib::OCPParams@{mpclib::OCPParams}!WarmStartLevel@{WarmStartLevel}}
+\index{WarmStartLevel@{WarmStartLevel}!mpclib::OCPParams@{mpclib::OCPParams}}
+\doxysubsubsection{\texorpdfstring{WarmStartLevel}{WarmStartLevel}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_params_a40bedb8a3439389bba54c469a332d848} 
+enum class \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_params_a40bedb8a3439389bba54c469a332d848}{mpclib::\+\+OCPParams::\+\+Warm\+Start\+Level}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Enum defining warm start levels. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NONE@{NONE}!mpclib::OCPParams@{mpclib::OCPParams}}
+\index{mpclib::OCPParams@{mpclib::OCPParams}!NONE@{NONE}}
+}\Hypertarget{structmpclib_1_1_o_c_p_params_a40bedb8a3439389bba54c469a332d848ab50339a10e1de285ac99d4c3990b8693}\label{structmpclib_1_1_o_c_p_params_a40bedb8a3439389bba54c469a332d848ab50339a10e1de285ac99d4c3990b8693} 
+NONE&No warm start. Both state and input are "{}guessed"{} to be zero. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATE@{STATE}!mpclib::OCPParams@{mpclib::OCPParams}}
+\index{mpclib::OCPParams@{mpclib::OCPParams}!STATE@{STATE}}
+}\Hypertarget{structmpclib_1_1_o_c_p_params_a40bedb8a3439389bba54c469a332d848a2b848a8cc886d253d21a77c43cd50aae}\label{structmpclib_1_1_o_c_p_params_a40bedb8a3439389bba54c469a332d848a2b848a8cc886d253d21a77c43cd50aae} 
+STATE&Only the state is warm started. The input is "{}guessed"{} to be zero. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATE\_AND\_INPUT@{STATE\_AND\_INPUT}!mpclib::OCPParams@{mpclib::OCPParams}}
+\index{mpclib::OCPParams@{mpclib::OCPParams}!STATE\_AND\_INPUT@{STATE\_AND\_INPUT}}
+}\Hypertarget{structmpclib_1_1_o_c_p_params_a40bedb8a3439389bba54c469a332d848a50ba3acc5acde3be5b41732899836271}\label{structmpclib_1_1_o_c_p_params_a40bedb8a3439389bba54c469a332d848a50ba3acc5acde3be5b41732899836271} 
+STATE\+\_\+\+AND\+\_\+\+INPUT&Both state and input are warm started, i.\+e. reused from the previous solve. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FULL@{FULL}!mpclib::OCPParams@{mpclib::OCPParams}}
+\index{mpclib::OCPParams@{mpclib::OCPParams}!FULL@{FULL}}
+}\Hypertarget{structmpclib_1_1_o_c_p_params_a40bedb8a3439389bba54c469a332d848aba7de5bc6888294e5884b024a4c894f1}\label{structmpclib_1_1_o_c_p_params_a40bedb8a3439389bba54c469a332d848aba7de5bc6888294e5884b024a4c894f1} 
+FULL&Full warm start, including state, input, other IPM variables. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-variable-members}
+\Hypertarget{structmpclib_1_1_o_c_p_params_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structmpclib_1_1_o_c_p_params_ae0cda9ed45b1702bfe9967c114ebb603}\index{mpclib::OCPParams@{mpclib::OCPParams}!iterations@{iterations}}
+\index{iterations@{iterations}!mpclib::OCPParams@{mpclib::OCPParams}}
+\doxysubsubsection{\texorpdfstring{iterations}{iterations}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_params_ae0cda9ed45b1702bfe9967c114ebb603} 
+int mpclib::\+\+OCPParams::\+iterations = 5}
+
+
+
+Maximum number of iterations per solve call. 
+
+\Hypertarget{structmpclib_1_1_o_c_p_params_a9d3f0aca306fbebc7729b91a75a497db}\index{mpclib::OCPParams@{mpclib::OCPParams}!N@{N}}
+\index{N@{N}!mpclib::OCPParams@{mpclib::OCPParams}}
+\doxysubsubsection{\texorpdfstring{N}{N}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_params_a9d3f0aca306fbebc7729b91a75a497db} 
+int mpclib::\+\+OCPParams::\+N}
+
+
+
+Number of time steps in the OCP problem. This means there are N actions \& N states to predict excluding the initial state. 
+
+\Hypertarget{structmpclib_1_1_o_c_p_params_a5b9ca55230204ae8fa8a69309c08c5e2}\index{mpclib::OCPParams@{mpclib::OCPParams}!Q@{Q}}
+\index{Q@{Q}!mpclib::OCPParams@{mpclib::OCPParams}}
+\doxysubsubsection{\texorpdfstring{Q}{Q}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_params_a5b9ca55230204ae8fa8a69309c08c5e2} 
+\doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}} mpclib::\+\+OCPParams::\+Q}
+
+
+
+State cost for intermediate timesteps 2 … N‑1. 
+
+\Hypertarget{structmpclib_1_1_o_c_p_params_ac53a6f20608d6b071d5b597ddc57384e}\index{mpclib::OCPParams@{mpclib::OCPParams}!Q1@{Q1}}
+\index{Q1@{Q1}!mpclib::OCPParams@{mpclib::OCPParams}}
+\doxysubsubsection{\texorpdfstring{Q1}{Q1}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_params_ac53a6f20608d6b071d5b597ddc57384e} 
+\doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}} mpclib::\+\+OCPParams::\+\+Q1}
+
+
+
+State cost for timestep 1 ( $ x_1 $). 
+
+\Hypertarget{structmpclib_1_1_o_c_p_params_a6e7332fc5140de5aa13c5c73cea1cab9}\index{mpclib::OCPParams@{mpclib::OCPParams}!Qf@{Qf}}
+\index{Qf@{Qf}!mpclib::OCPParams@{mpclib::OCPParams}}
+\doxysubsubsection{\texorpdfstring{Qf}{Qf}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_params_a6e7332fc5140de5aa13c5c73cea1cab9} 
+\doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}} mpclib::\+\+OCPParams::\+\+Qf}
+
+
+
+State cost for timestep N ( $ x_N $). 
+
+\Hypertarget{structmpclib_1_1_o_c_p_params_a012c0e0e5a506d6f94ab48393067a567}\index{mpclib::OCPParams@{mpclib::OCPParams}!R@{R}}
+\index{R@{R}!mpclib::OCPParams@{mpclib::OCPParams}}
+\doxysubsubsection{\texorpdfstring{R}{R}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_params_a012c0e0e5a506d6f94ab48393067a567} 
+\doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}} mpclib::\+\+OCPParams::\+R}
+
+
+
+Action cost for intermediate timesteps 1 … N‑2. 
+
+\Hypertarget{structmpclib_1_1_o_c_p_params_aeda9950fba2b4da3d4112cf130b074bd}\index{mpclib::OCPParams@{mpclib::OCPParams}!R0@{R0}}
+\index{R0@{R0}!mpclib::OCPParams@{mpclib::OCPParams}}
+\doxysubsubsection{\texorpdfstring{R0}{R0}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_params_aeda9950fba2b4da3d4112cf130b074bd} 
+\doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}} mpclib::\+\+OCPParams::\+\+R0}
+
+
+
+Action cost for timestep 0 ( $ u_0 $). 
+
+\Hypertarget{structmpclib_1_1_o_c_p_params_a28ff3bc462b2928a50bdce2559b008bd}\index{mpclib::OCPParams@{mpclib::OCPParams}!Rf@{Rf}}
+\index{Rf@{Rf}!mpclib::OCPParams@{mpclib::OCPParams}}
+\doxysubsubsection{\texorpdfstring{Rf}{Rf}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_params_a28ff3bc462b2928a50bdce2559b008bd} 
+\doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}} mpclib::\+\+OCPParams::\+\+Rf}
+
+
+
+Action cost for timestep ( $ u_{N-1} $). 
+
+\Hypertarget{structmpclib_1_1_o_c_p_params_a06dae6dd9c1a5b6d7d24e5c4b60f9b50}\index{mpclib::OCPParams@{mpclib::OCPParams}!warm\_start\_level@{warm\_start\_level}}
+\index{warm\_start\_level@{warm\_start\_level}!mpclib::OCPParams@{mpclib::OCPParams}}
+\doxysubsubsection{\texorpdfstring{warm\_start\_level}{warm\_start\_level}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_params_a06dae6dd9c1a5b6d7d24e5c4b60f9b50} 
+enum \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_params_a40bedb8a3439389bba54c469a332d848}{mpclib::\+\+OCPParams::\+\+Warm\+Start\+Level}} mpclib::\+\+OCPParams::\+warm\+\_\+start\+\_\+level = \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_params_a40bedb8a3439389bba54c469a332d848a2b848a8cc886d253d21a77c43cd50aae}{Warm\+Start\+Level::\+\+STATE}}}
+
+
+
+Default – reuse state only. 
+
+
+
+The documentation for this struct was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+mpclib/\+\doxymbox{\hyperlink{ocp_8h}{ocp.\+h}}\end{DoxyCompactItemize}

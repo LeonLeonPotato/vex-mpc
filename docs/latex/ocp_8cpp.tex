@@ -1,0 +1,178 @@
+\doxysection{src/\+mpclib/\+ocp.cpp File Reference}
+\hypertarget{ocp_8cpp}{}\label{ocp_8cpp}\index{src/mpclib/ocp.cpp@{src/mpclib/ocp.cpp}}
+
+
+Wrapper class of the Optimal Control Problem Quadratic Programming (OCP-\/\+QP) solver using HPIPM.  
+
+
+{\ttfamily \+\#include "{}ocp.\+h"{}}\newline
+{\ttfamily \+\#include "{}hpipm/\+hpipm\+\_\+s\+\_\+ocp\+\_\+qp\+\_\+ipm.\+h"{}}\newline
+{\ttfamily \+\#include $<$algorithm$>$}\newline
+{\ttfamily \+\#include $<$stdexcept$>$}\newline
+{\ttfamily \+\#include $<$vector$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \doxymbox{\hyperlink{ocp_8cpp_a7406f092be8547c1dca78d1aad820345}{create\+\_\+mask\+\_\+from\+\_\+constraints}} (float \texorpdfstring{$\ast$}{*}arr, size\+\_\+t size, const std::\+vector$<$ \doxymbox{\hyperlink{structmpclib_1_1_constraint}{Constraint}} $>$ \&constraints)
+\begin{DoxyCompactList}\small\item\em Create an HPIPM bit mask from a list of constraints object. \end{DoxyCompactList}\item 
+static void \doxymbox{\hyperlink{ocp_8cpp_a0037edf874599c5d6db7a06e288d74df}{create\+\_\+index\+\_\+from\+\_\+constraints}} (int \texorpdfstring{$\ast$}{*}arr, size\+\_\+t size, const std::\+vector$<$ \doxymbox{\hyperlink{structmpclib_1_1_constraint}{Constraint}} $>$ \&constraints)
+\begin{DoxyCompactList}\small\item\em Create an HPIPM index from a list of constraints object. \end{DoxyCompactList}\item 
+static void \doxymbox{\hyperlink{ocp_8cpp_a7c9328d0a677b98959d8bced6121dd93}{create\+\_\+bounds\+\_\+from\+\_\+constraints}} (float \texorpdfstring{$\ast$}{*}lower, float \texorpdfstring{$\ast$}{*}upper, const std::\+vector$<$ \doxymbox{\hyperlink{structmpclib_1_1_constraint}{Constraint}} $>$ \&constraints)
+\begin{DoxyCompactList}\small\item\em Create lower and upper bounds from a list of constraints object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\static void \doxymbox{\hyperlink{ocp_8cpp_a9321c42005c129b85dbfbabd50188fa9}{print\+\_\+arr}} (T \texorpdfstring{$\ast$}{*}arr, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Prints an array to terminal. \end{DoxyCompactList}\item 
+static auto \doxymbox{\hyperlink{ocp_8cpp_a3ad67bffcc2f8af077ab66f1c4e7d8f1}{autodiff\+\_\+model\+\_\+wrapper}} (const \doxymbox{\hyperlink{classmpclib_1_1_model}{Model}} \&model, const \doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}} \&x, const \doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}} \&u, double dt\+\_\+override)
+\begin{DoxyCompactList}\small\item\em static method to wrap the autodiff function for the model \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Wrapper class of the Optimal Control Problem Quadratic Programming (OCP-\/\+QP) solver using HPIPM. 
+
+This file contains the implementation of the \doxylink{structmpclib_1_1_o_c_p_q_p}{OCPQP} class, which is responsible for setting up and solving optimal control problems using the HPIPM library. The implementation includes methods for setting up problem dimensions, constraints, costs, and relinearizing the dynamics. It also provides functionality for setting target states and solving the problem.
+
+The \doxylink{structmpclib_1_1_o_c_p_q_p}{OCPQP} class leverages the HPIPM library to solve quadratic programming problems that arise in optimal control. The implementation includes helper functions for creating masks, indices, and bounds from constraints, as well as methods for relinearizing the system dynamics using automatic differentiation. The solver supports warm-\/starting and allows for customization of solver parameters such as iteration limits and accuracy levels.
+
+Key features:\+
+\begin{DoxyItemize}
+\item Setup of problem dimensions, constraints, and costs.
+\item Support for state, action, and general constraints.
+\item Automatic differentiation for relinearization of dynamics.
+\item Warm-\/starting and customizable solver parameters.
+\item Debugging utilities for printing arrays and intermediate results.
+\end{DoxyItemize}
+
+Dependencies:\+
+\begin{DoxyItemize}
+\item HPIPM library for solving quadratic programming problems.
+\item Eigen library for matrix and vector operations.
+\item Autodiff library for automatic differentiation of nonlinear functions.
+\end{DoxyItemize}
+
+Usage:\+
+\begin{DoxyItemize}
+\item Instantiate the \doxylink{structmpclib_1_1_o_c_p_q_p}{OCPQP} class with a model and OCP parameters.
+\item Use the provided methods to set up the problem, relinearize dynamics, and solve the problem.
+\item Retrieve the solution and status using the appropriate methods.
+\end{DoxyItemize}
+
+\begin{DoxyAuthor}{Author}
+Leon 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/4-\/20 
+\end{DoxyDate}
+
+
+\label{doc-func-members}
+\Hypertarget{ocp_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{ocp_8cpp_a3ad67bffcc2f8af077ab66f1c4e7d8f1}\index{ocp.cpp@{ocp.cpp}!autodiff\_model\_wrapper@{autodiff\_model\_wrapper}}
+\index{autodiff\_model\_wrapper@{autodiff\_model\_wrapper}!ocp.cpp@{ocp.cpp}}
+\doxysubsubsection{\texorpdfstring{autodiff\_model\_wrapper()}{autodiff\_model\_wrapper()}}
+{\footnotesize\ttfamily \label{ocp_8cpp_a3ad67bffcc2f8af077ab66f1c4e7d8f1} 
+auto autodiff\+\_\+model\+\_\+wrapper (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classmpclib_1_1_model}{Model}} \&}]{model}{, }\item[{const \doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}} \&}]{x}{, }\item[{const \doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}} \&}]{u}{, }\item[{double}]{dt\+\_\+override}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+static method to wrap the autodiff function for the model 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & \doxylink{classmpclib_1_1_model}{Model} object to call the autodiff function on \\
+\hline
+{\em x} & state operating vector to linearize around \\
+\hline
+{\em u} & action operating vector to linearize around \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+auto 
+\end{DoxyReturn}
+\Hypertarget{ocp_8cpp_a7c9328d0a677b98959d8bced6121dd93}\index{ocp.cpp@{ocp.cpp}!create\_bounds\_from\_constraints@{create\_bounds\_from\_constraints}}
+\index{create\_bounds\_from\_constraints@{create\_bounds\_from\_constraints}!ocp.cpp@{ocp.cpp}}
+\doxysubsubsection{\texorpdfstring{create\_bounds\_from\_constraints()}{create\_bounds\_from\_constraints()}}
+{\footnotesize\ttfamily \label{ocp_8cpp_a7c9328d0a677b98959d8bced6121dd93} 
+void create\+\_\+bounds\+\_\+from\+\_\+constraints (\begin{DoxyParamCaption}\item[{float \texorpdfstring{$\ast$}{*}}]{lower}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{upper}{, }\item[{const std::\+vector$<$ \doxymbox{\hyperlink{structmpclib_1_1_constraint}{Constraint}} $>$ \&}]{constraints}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create lower and upper bounds from a list of constraints object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lower} & pointer to the lower bound array to copy to \\
+\hline
+{\em upper} & pointer to the upper bound array to copy to \\
+\hline
+{\em constraints} & vector of constraints \\
+\hline
+\end{DoxyParams}
+\Hypertarget{ocp_8cpp_a0037edf874599c5d6db7a06e288d74df}\index{ocp.cpp@{ocp.cpp}!create\_index\_from\_constraints@{create\_index\_from\_constraints}}
+\index{create\_index\_from\_constraints@{create\_index\_from\_constraints}!ocp.cpp@{ocp.cpp}}
+\doxysubsubsection{\texorpdfstring{create\_index\_from\_constraints()}{create\_index\_from\_constraints()}}
+{\footnotesize\ttfamily \label{ocp_8cpp_a0037edf874599c5d6db7a06e288d74df} 
+void create\+\_\+index\+\_\+from\+\_\+constraints (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{size\+\_\+t}]{size}{, }\item[{const std::\+vector$<$ \doxymbox{\hyperlink{structmpclib_1_1_constraint}{Constraint}} $>$ \&}]{constraints}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create an HPIPM index from a list of constraints object. 
+
+Copies all \textquotesingle{}index\textquotesingle{} parameters of every constraint into a C-\/style array of the same size. In HPIPM terms, this tells the solver the index of every variable that is targetted in the constraint.
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & pointer to the C-\/style array to copy to \\
+\hline
+{\em size} & size of the constraints vector and the array to copy to \\
+\hline
+{\em constraints} & vector of constraints \\
+\hline
+\end{DoxyParams}
+\Hypertarget{ocp_8cpp_a7406f092be8547c1dca78d1aad820345}\index{ocp.cpp@{ocp.cpp}!create\_mask\_from\_constraints@{create\_mask\_from\_constraints}}
+\index{create\_mask\_from\_constraints@{create\_mask\_from\_constraints}!ocp.cpp@{ocp.cpp}}
+\doxysubsubsection{\texorpdfstring{create\_mask\_from\_constraints()}{create\_mask\_from\_constraints()}}
+{\footnotesize\ttfamily \label{ocp_8cpp_a7406f092be8547c1dca78d1aad820345} 
+void create\+\_\+mask\+\_\+from\+\_\+constraints (\begin{DoxyParamCaption}\item[{float \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{size\+\_\+t}]{size}{, }\item[{const std::\+vector$<$ \doxymbox{\hyperlink{structmpclib_1_1_constraint}{Constraint}} $>$ \&}]{constraints}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create an HPIPM bit mask from a list of constraints object. 
+
+~\newline
+ Loops over the constraints, setting the \textquotesingle{}index\textquotesingle{} parameter of each constraint to 1, and everything else to 0. In HPIPM terms, this activates the constraint at that index.
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & pointer to the C-\/style array to write to \\
+\hline
+{\em size} & size of the constraints vector and the array to copy to \\
+\hline
+{\em constraints} & vector of constraints \\
+\hline
+\end{DoxyParams}
+\Hypertarget{ocp_8cpp_a9321c42005c129b85dbfbabd50188fa9}\index{ocp.cpp@{ocp.cpp}!print\_arr@{print\_arr}}
+\index{print\_arr@{print\_arr}!ocp.cpp@{ocp.cpp}}
+\doxysubsubsection{\texorpdfstring{print\_arr()}{print\_arr()}}
+{\footnotesize\ttfamily \label{ocp_8cpp_a9321c42005c129b85dbfbabd50188fa9} 
+template$<$typename T$>$ \\
+void print\+\_\+arr (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Prints an array to terminal. 
+
+\begin{DoxyNote}{Note}
+Used for debugging
+\end{DoxyNote}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & the type of every element in the array \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & pointer to the array to print from \\
+\hline
+{\em size} & size of the array \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,64 @@
+\doxysection{base\+\_\+model.\+h}
+\hypertarget{base__model_8h_source}{}\label{base__model_8h_source}\index{include/mpclib/models/base\_model.h@{include/mpclib/models/base\_model.h}}
+\doxymbox{\hyperlink{base__model_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{utils_8h}{mpclib/utils.h}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespacempclib}{mpclib}}\ \{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structmpclib_1_1_constraint}{Constraint}}\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structmpclib_1_1_constraint_a37197160d7a81491f1887b7f6dfd60f5}{lower\_bound}};\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structmpclib_1_1_constraint_ac44f19f693e41e691ac1f82ac6043c8a}{upper\_bound}};\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structmpclib_1_1_constraint_a97eb3c80ab8728a0b411dc333ede96b1}{index}};\ \textcolor{comment}{//\ <\ Index\ of\ the\ target\ variable,\ e.g.\ an\ index\ of\ 1\ means\ the\ second\ variable\ in\ the\ state\ or\ action\ vector.}}
+\DoxyCodeLine{00031\ \};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classmpclib_1_1_model}{Model}}\ \{}
+\DoxyCodeLine{00047\ \textcolor{keyword}{public}:\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structmpclib_1_1_model_1_1_base_params}{BaseParams}}\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structmpclib_1_1_model_1_1_base_params_a36f11c35b79bf8d595cd6de8e26a98e6}{dt}};\ }
+\DoxyCodeLine{00057\ \ \ \ \ \};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classmpclib_1_1_model_a58739634bf1d03f0069db9751fc81c91}{state\_size}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classmpclib_1_1_model_a051a37c3e18fab91f0b8b4abcab1813e}{action\_size}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structmpclib_1_1_model_1_1_base_params}{BaseParams}}\&\ \doxymbox{\hyperlink{classmpclib_1_1_model_addde221b3a67756e29284989f2092ce9}{get\_params}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{virtual}\ \doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}}\ \doxymbox{\hyperlink{classmpclib_1_1_model_a139cee651ab6dfad56c9f7950340f559}{autodiff}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}}\&\ x,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}}\&\ u,\ \textcolor{keywordtype}{double}\ dt\_override)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{virtual}\ \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}}\ \doxymbox{\hyperlink{classmpclib_1_1_model_a866622a1db5e0762e60a3149e5bea84f}{infer}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}}\&\ x,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}}\&\ u,\ \textcolor{keywordtype}{float}\ dt\_override)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ std::vector<Constraint>\&\ \doxymbox{\hyperlink{classmpclib_1_1_model_a04f2f7926590be1a727dff75d749883c}{state\_constraints}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{classmpclib_1_1_model_a4fb3d775f251380598599f33b42469f4}{state\_constraints\_}};\ \}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ std::vector<Constraint>\&\ \doxymbox{\hyperlink{classmpclib_1_1_model_aee751c59a3b0303d138b3d7d2ab8283c}{action\_constraints}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{classmpclib_1_1_model_af8ebb3ffde2ccf627172c3d433a7ae64}{action\_constraints\_}};\ \}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ std::vector<Constraint>\&\ \doxymbox{\hyperlink{classmpclib_1_1_model_ae746b8ea21b5b541762f194675f48a0e}{general\_constraints}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{classmpclib_1_1_model_ab9057a3402491fed144d44e9b546e054}{general\_constraints\_}};\ \}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}}\&\ \doxymbox{\hyperlink{classmpclib_1_1_model_a18799373ec1fd577430cbdb1680ed1e6}{general\_constraints\_state\_matrix}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{classmpclib_1_1_model_a4453ac3e9d8266f41d2bf1bacf55a2ec}{general\_state\_matrix}};\ \}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}}\&\ \doxymbox{\hyperlink{classmpclib_1_1_model_ae871b8e8491358b8f0ea296c3ea5fd84}{general\_constraints\_action\_matrix}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{classmpclib_1_1_model_a7aecb7e3e6f09d323c64d2f9b7751028}{general\_action\_matrix}};\ \}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00152\ \ \ \ \ std::vector<Constraint>\ \doxymbox{\hyperlink{classmpclib_1_1_model_a4fb3d775f251380598599f33b42469f4}{state\_constraints\_}};\ }
+\DoxyCodeLine{00153\ \ \ \ \ std::vector<Constraint>\ \doxymbox{\hyperlink{classmpclib_1_1_model_af8ebb3ffde2ccf627172c3d433a7ae64}{action\_constraints\_}};\ }
+\DoxyCodeLine{00154\ \ \ \ \ std::vector<Constraint>\ \doxymbox{\hyperlink{classmpclib_1_1_model_ab9057a3402491fed144d44e9b546e054}{general\_constraints\_}};\ }
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ \doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}}\ \doxymbox{\hyperlink{classmpclib_1_1_model_a4453ac3e9d8266f41d2bf1bacf55a2ec}{general\_state\_matrix}};\ }
+\DoxyCodeLine{00157\ \ \ \ \ \doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78cbf5f}{Mat}}\ \doxymbox{\hyperlink{classmpclib_1_1_model_a7aecb7e3e6f09d323c64d2f9b7751028}{general\_action\_matrix}};\ }
+\DoxyCodeLine{00158\ \};}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00175\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classmpclib_1_1_drive_model}{DriveModel}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classmpclib_1_1_model}{Model}}\ \{}
+\DoxyCodeLine{00176\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classmpclib_1_1_drive_model_a35aca59cc748223127101bc7644261e1}{STATE\_SIZE}}\ =\ 5;\ \textcolor{comment}{//\ x,\ y,\ theta,\ [velocities]}}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classmpclib_1_1_drive_model_a71863fd9ab7f66df75e1d97b44d81f6a}{ACTION\_SIZE}}\ =\ 2;\ \textcolor{comment}{//\ [accelerations]}}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classmpclib_1_1_drive_model_ac6335c0380711e8d93fafd75cef84a72}{state\_size}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{classmpclib_1_1_drive_model_a35aca59cc748223127101bc7644261e1}{STATE\_SIZE}};\ \}}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classmpclib_1_1_drive_model_a24c0a122053797f2615929d8a6ccb26f}{action\_size}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{classmpclib_1_1_drive_model_a71863fd9ab7f66df75e1d97b44d81f6a}{ACTION\_SIZE}};\ \}}
+\DoxyCodeLine{00184\ \};}
+\DoxyCodeLine{00185\ \}}
+
+\end{DoxyCode}

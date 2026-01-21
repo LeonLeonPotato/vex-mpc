@@ -1,0 +1,543 @@
+\doxysection{mpclib::\+OCPQP Struct Reference}
+\hypertarget{structmpclib_1_1_o_c_p_q_p}{}\label{structmpclib_1_1_o_c_p_q_p}\index{mpclib::OCPQP@{mpclib::OCPQP}}
+
+
+Class wrapping the OCP-\/\+QP solver.  
+
+
+
+
+{\ttfamily \+\#include $<$ocp.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_a69464e3b62e3549495fd9c1c3e1b5b71}{OCPQP}} (const \doxymbox{\hyperlink{classmpclib_1_1_model}{Model}} \&\doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_a72bd637780587f8c14cad7e70f6ae473}{model}}, const \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_params}{OCPParams}} \&\doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_a957c120aed8c32dcd91b586a48e38d1c}{ocp\+\_\+params}})
+\begin{DoxyCompactList}\small\item\em Construct a partially initialized QP wrapper. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_a16adfe153e043a49bc5bda7b5c8f6eaf}{\texorpdfstring{$\sim$}{\string~}\+OCPQP}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \doxylink{structmpclib_1_1_o_c_p_q_p}{OCPQP} object. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_addb8b04aa59b8c68462a6237439060de}{set\+\_\+initial\+\_\+state}} (const \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} \&x)
+\begin{DoxyCompactList}\small\item\em Constrain the current state. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_a2c358db02a2a3676c16a21dc3be1e1b4}{relinearize}} (const \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} \&x, const \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} \&u, float first\+\_\+stage\+\_\+dt\+\_\+override=-\/1.\+0f)
+\begin{DoxyCompactList}\small\item\em Relinearize the model dynamics using a single state and input. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_a5b38c1a4bb1b9e8219bfa8172b66745b}{relinearize}} (\doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} x, const std::\+vector$<$ \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} $>$ \&u, float first\+\_\+stage\+\_\+dt\+\_\+override=-\/1.\+0f)
+\begin{DoxyCompactList}\small\item\em Relinearize the model dynamics by evolving a state from a sequence of actions. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_a275879a8547e227a41a85a60e43c59d1}{relinearize}} (const std::\+vector$<$ \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} $>$ \&x, const std::\+vector$<$ \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} $>$ \&u, float first\+\_\+stage\+\_\+dt\+\_\+override=-\/1.\+0f)
+\begin{DoxyCompactList}\small\item\em Relinearize the model dynamics from a sequence of states and actions. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_a0b6d1ba7b5c5a174e7c60945a3523355}{set\+\_\+target\+\_\+state}} (const \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} \&x\+\_\+desired)
+\begin{DoxyCompactList}\small\item\em Set a single target state across all N timesteps. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_adea2b5560cdd90fa9cce6b8127cd48c8}{set\+\_\+target\+\_\+state}} (const std::\+vector$<$ \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} $>$ \&x\+\_\+desired)
+\begin{DoxyCompactList}\small\item\em Set possibly unique target states in each timestep. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_ac92e8b3e03e4ce5680cc95235e661387}{set\+\_\+target\+\_\+input}} (const \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} \&u\+\_\+desired)
+\begin{DoxyCompactList}\small\item\em Set a single target input across all N timesteps. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_aecb524f8ebe4abb5e5ebbd0c804eaff0}{set\+\_\+target\+\_\+input}} (const std::\+vector$<$ \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} $>$ \&u\+\_\+desired)
+\begin{DoxyCompactList}\small\item\em Set possibly unique target inputs in each timestep. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_aafa929c667d6ca84d1c0c5cd151fbc27}{solve}} (bool silent=true)
+\begin{DoxyCompactList}\small\item\em Solves the OCP problem using HPIPM. \end{DoxyCompactList}\item 
+std::\+vector$<$ \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} $>$ \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_a0d181373832bed9accb6ebad63ad8fbb}{get\+\_\+solution\+\_\+states}} () const
+\begin{DoxyCompactList}\small\item\em Get all (timesteps $ [1, N] $) solution states from the \doxylink{structmpclib_1_1_o_c_p_q_p_adab4b345e68b1c05ad42e869520e00c8}{qp\+\_\+sol}. \end{DoxyCompactList}\item 
+std::\+vector$<$ \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} $>$ \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_a6d665473962950dd3797923e2acf2062}{get\+\_\+solution\+\_\+actions}} () const
+\begin{DoxyCompactList}\small\item\em Get all (timesteps $ [0, N-1] $) solution actions from the \doxylink{structmpclib_1_1_o_c_p_q_p_adab4b345e68b1c05ad42e869520e00c8}{qp\+\_\+sol}. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_ae45ad8808d3fbb2f5c445bd675cc2c64}{get\+\_\+solution\+\_\+state}} (int i) const
+\begin{DoxyCompactList}\small\item\em Get the solution state at a specific timestep. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_a058ecbf69b3b6714023f49fee3e69225}{get\+\_\+solution\+\_\+action}} (int i) const
+\begin{DoxyCompactList}\small\item\em Get the solution action object. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_aa1e4bc71ee46b8dbd913c4bc851652d3}{push\+\_\+down\+\_\+solutions}} ()
+\begin{DoxyCompactList}\small\item\em "{}\+Push down"{} the solution state and actions by one timestep. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_a75d0b757c43fbf9e4a51637423d6bcc9}{push\+\_\+down\+\_\+solution\+\_\+states}} ()
+\begin{DoxyCompactList}\small\item\em "{}\+Push down"{} the solution state by one timestep. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_a9be3791268e5149e524380468f20f013}{push\+\_\+down\+\_\+solution\+\_\+actions}} ()
+\begin{DoxyCompactList}\small\item\em "{}\+Push down"{} the solution action by one timestep. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_params}{OCPParams}} \& \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_a957c120aed8c32dcd91b586a48e38d1c}{ocp\+\_\+params}}
+\begin{DoxyCompactList}\small\item\em Reference to OCP configuration. \end{DoxyCompactList}\item 
+const \doxymbox{\hyperlink{classmpclib_1_1_model}{Model}} \& \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_a72bd637780587f8c14cad7e70f6ae473}{model}}
+\begin{DoxyCompactList}\small\item\em Reference to the model defining system dynamics and constraints. \end{DoxyCompactList}\item 
+s\+\_\+ocp\+\_\+qp\+\_\+dim \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_a3424364991c865bd8bec34003a7fd1a6}{dim}}
+\begin{DoxyCompactList}\small\item\em HPIPM dimension object. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_ac04a63f8863a0b8b96f1f03a9fbd54d6}{dim\+\_\+mem}}
+\begin{DoxyCompactList}\small\item\em Memory for HPIPM dimension object. \end{DoxyCompactList}\item 
+s\+\_\+ocp\+\_\+qp \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_ac7a2e50aedeb44cf942498357d1528d1}{qp}}
+\begin{DoxyCompactList}\small\item\em HPIPM QP object. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_aa0578559c3be1db57778327a4370610a}{qp\+\_\+mem}}
+\begin{DoxyCompactList}\small\item\em Memory for HPIPM QP object. \end{DoxyCompactList}\item 
+s\+\_\+ocp\+\_\+qp\+\_\+sol \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_adab4b345e68b1c05ad42e869520e00c8}{qp\+\_\+sol}}
+\begin{DoxyCompactList}\small\item\em HPIPM solution object. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_a49acac9213ac89b2321a309d86c0c656}{qp\+\_\+sol\+\_\+mem}}
+\begin{DoxyCompactList}\small\item\em Memory for HPIPM solution object. \end{DoxyCompactList}\item 
+s\+\_\+ocp\+\_\+qp\+\_\+ipm\+\_\+ws \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_a8edff0fe3940125f6fa96d27bd60b642}{workspace}}
+\begin{DoxyCompactList}\small\item\em HPIPM workspace object. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_a5798acff889689126779fce511177b02}{ipm\+\_\+mem}}
+\begin{DoxyCompactList}\small\item\em Memory for HPIPM workspace. \end{DoxyCompactList}\item 
+s\+\_\+ocp\+\_\+qp\+\_\+ipm\+\_\+arg \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_aaba07d42fa5b613079ea22620857ccb0}{ipm\+\_\+arg}}
+\begin{DoxyCompactList}\small\item\em HPIPM solver argument object. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_q_p_a54f5d7ecbc7dc6a496008c83895e97d2}{ipm\+\_\+arg\+\_\+mem}}
+\begin{DoxyCompactList}\small\item\em Memory for HPIPM solver argument object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class wrapping the OCP-\/\+QP solver. 
+
+Handles initialization and solution of OCP problems using HPIPM. Provides functions to set targets, initial conditions, constraints, and cost functions. 
+
+\label{doc-constructors}
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_a69464e3b62e3549495fd9c1c3e1b5b71}\index{mpclib::OCPQP@{mpclib::OCPQP}!OCPQP@{OCPQP}}
+\index{OCPQP@{OCPQP}!mpclib::OCPQP@{mpclib::OCPQP}}
+\doxysubsubsection{\texorpdfstring{OCPQP()}{OCPQP()}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_q_p_a69464e3b62e3549495fd9c1c3e1b5b71} 
+OCPQP::\+\+OCPQP (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classmpclib_1_1_model}{Model}} \&}]{model}{, }\item[{const \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_params}{OCPParams}} \&}]{ocp\+\_\+params}{}\end{DoxyParamCaption})}
+
+
+
+Construct a partially initialized QP wrapper. 
+
+All HPIPM structures are allocated and the {\itshape static} parts of the problem (dimensions, box constraints, state or action independent cost weights) are set up. No linearization or initial state setting is performed here – call one of the {\ttfamily \doxylink{structmpclib_1_1_o_c_p_q_p_a2c358db02a2a3676c16a21dc3be1e1b4}{relinearize()}} overloads and set the initial state before solving.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \doxylink{structmpclib_1_1_o_c_p_q_p_a72bd637780587f8c14cad7e70f6ae473}{model}} & Dynamics model \\
+\hline
+{\em \doxylink{structmpclib_1_1_o_c_p_q_p_a957c120aed8c32dcd91b586a48e38d1c}{ocp\+\_\+params}} & Horizon length, cost weights and solver options. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_a16adfe153e043a49bc5bda7b5c8f6eaf}\index{mpclib::OCPQP@{mpclib::OCPQP}!````~OCPQP@{\texorpdfstring{$\sim$}{\string~}OCPQP}}
+\index{````~OCPQP@{\texorpdfstring{$\sim$}{\string~}OCPQP}!mpclib::OCPQP@{mpclib::OCPQP}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}OCPQP()}{\string~OCPQP()}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_q_p_a16adfe153e043a49bc5bda7b5c8f6eaf} 
+OCPQP::\+\texorpdfstring{$\sim$}{\string~}\+OCPQP (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Destroy the \doxylink{structmpclib_1_1_o_c_p_q_p}{OCPQP} object. 
+
+Deallocates all HPIPM structures and memory. 
+
+\label{doc-func-members}
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_a058ecbf69b3b6714023f49fee3e69225}\index{mpclib::OCPQP@{mpclib::OCPQP}!get\_solution\_action@{get\_solution\_action}}
+\index{get\_solution\_action@{get\_solution\_action}!mpclib::OCPQP@{mpclib::OCPQP}}
+\doxysubsubsection{\texorpdfstring{get\_solution\_action()}{get\_solution\_action()}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_q_p_a058ecbf69b3b6714023f49fee3e69225} 
+\doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} OCPQP::\+get\+\_\+solution\+\_\+action (\begin{DoxyParamCaption}\item[{int}]{i}{}\end{DoxyParamCaption}) const}
+
+
+
+Get the solution action object. 
+
+\begin{DoxyNote}{Note}
+Actions are 0-\/indexed in HPIPM, so the first action is 0 and the last action is N-\/1. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em i} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec} 
+\end{DoxyReturn}
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_a6d665473962950dd3797923e2acf2062}\index{mpclib::OCPQP@{mpclib::OCPQP}!get\_solution\_actions@{get\_solution\_actions}}
+\index{get\_solution\_actions@{get\_solution\_actions}!mpclib::OCPQP@{mpclib::OCPQP}}
+\doxysubsubsection{\texorpdfstring{get\_solution\_actions()}{get\_solution\_actions()}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_q_p_a6d665473962950dd3797923e2acf2062} 
+std::\+vector$<$ \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} $>$ OCPQP::\+get\+\_\+solution\+\_\+actions (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Get all (timesteps $ [0, N-1] $) solution actions from the \doxylink{structmpclib_1_1_o_c_p_q_p_adab4b345e68b1c05ad42e869520e00c8}{qp\+\_\+sol}. 
+
+\begin{DoxyReturn}{Returns}
+std::\+vector$<$\+Vec$>$ Action vectors of the solution at each timestep. The i-\/th element corresponds to the action at timestep i. 
+\end{DoxyReturn}
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_ae45ad8808d3fbb2f5c445bd675cc2c64}\index{mpclib::OCPQP@{mpclib::OCPQP}!get\_solution\_state@{get\_solution\_state}}
+\index{get\_solution\_state@{get\_solution\_state}!mpclib::OCPQP@{mpclib::OCPQP}}
+\doxysubsubsection{\texorpdfstring{get\_solution\_state()}{get\_solution\_state()}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_q_p_ae45ad8808d3fbb2f5c445bd675cc2c64} 
+\doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} OCPQP::\+get\+\_\+solution\+\_\+state (\begin{DoxyParamCaption}\item[{int}]{i}{}\end{DoxyParamCaption}) const}
+
+
+
+Get the solution state at a specific timestep. 
+
+\begin{DoxyNote}{Note}
+States are 1-\/indexed in HPIPM, so the first (non-\/initial) state is given at timestep 1 and the last state is at timestep N.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em i} & timestep index in the range $ [1, N] $. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec} State vector at timestep i. 
+\end{DoxyReturn}
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_a0d181373832bed9accb6ebad63ad8fbb}\index{mpclib::OCPQP@{mpclib::OCPQP}!get\_solution\_states@{get\_solution\_states}}
+\index{get\_solution\_states@{get\_solution\_states}!mpclib::OCPQP@{mpclib::OCPQP}}
+\doxysubsubsection{\texorpdfstring{get\_solution\_states()}{get\_solution\_states()}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_q_p_a0d181373832bed9accb6ebad63ad8fbb} 
+std::\+vector$<$ \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} $>$ OCPQP::\+get\+\_\+solution\+\_\+states (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Get all (timesteps $ [1, N] $) solution states from the \doxylink{structmpclib_1_1_o_c_p_q_p_adab4b345e68b1c05ad42e869520e00c8}{qp\+\_\+sol}. 
+
+\begin{DoxyReturn}{Returns}
+std::\+vector$<$\+Vec$>$ State vectors of the solution at each timestep. The i-\/th element corresponds to the state at timestep i+1. 
+\end{DoxyReturn}
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_a9be3791268e5149e524380468f20f013}\index{mpclib::OCPQP@{mpclib::OCPQP}!push\_down\_solution\_actions@{push\_down\_solution\_actions}}
+\index{push\_down\_solution\_actions@{push\_down\_solution\_actions}!mpclib::OCPQP@{mpclib::OCPQP}}
+\doxysubsubsection{\texorpdfstring{push\_down\_solution\_actions()}{push\_down\_solution\_actions()}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_q_p_a9be3791268e5149e524380468f20f013} 
+void OCPQP::\+push\+\_\+down\+\_\+solution\+\_\+actions (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+"{}\+Push down"{} the solution action by one timestep. 
+
+This function helps hot start the solver by reusing the solution from the previous timestep. When hot start solving, the previous solution was solved at a previous world time. Thus, it makes sense that the solution at timestep $ i $ in current time should be close to the solution at timestep $ i-1 $ in the previous time.
+
+\begin{DoxyNote}{Note}
+This function does not do anything to the action at timestep N-\/1 
+\end{DoxyNote}
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_a75d0b757c43fbf9e4a51637423d6bcc9}\index{mpclib::OCPQP@{mpclib::OCPQP}!push\_down\_solution\_states@{push\_down\_solution\_states}}
+\index{push\_down\_solution\_states@{push\_down\_solution\_states}!mpclib::OCPQP@{mpclib::OCPQP}}
+\doxysubsubsection{\texorpdfstring{push\_down\_solution\_states()}{push\_down\_solution\_states()}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_q_p_a75d0b757c43fbf9e4a51637423d6bcc9} 
+void OCPQP::\+push\+\_\+down\+\_\+solution\+\_\+states (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+"{}\+Push down"{} the solution state by one timestep. 
+
+This function helps hot start the solver by reusing the solution from the previous timestep. When hot start solving, the previous solution was solved at a previous world time. Thus, it makes sense that the solution at timestep $ i $ in current time should be close to the solution at timestep $ i-1 $ in the previous time.
+
+\begin{DoxyNote}{Note}
+This function does not do anything to the state at timestep N 
+\end{DoxyNote}
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_aa1e4bc71ee46b8dbd913c4bc851652d3}\index{mpclib::OCPQP@{mpclib::OCPQP}!push\_down\_solutions@{push\_down\_solutions}}
+\index{push\_down\_solutions@{push\_down\_solutions}!mpclib::OCPQP@{mpclib::OCPQP}}
+\doxysubsubsection{\texorpdfstring{push\_down\_solutions()}{push\_down\_solutions()}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_q_p_aa1e4bc71ee46b8dbd913c4bc851652d3} 
+void mpclib::\+\+OCPQP::\+push\+\_\+down\+\_\+solutions (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+"{}\+Push down"{} the solution state and actions by one timestep. 
+
+This function helps hot start the solver by reusing the solution from the previous timestep. When hot start solving, the previous solution was solved at a previous world time. Thus, it makes sense that the solution at timestep $ i $ in current time should be close to the solution at timestep $ i-1 $ in the previous time.
+
+\begin{DoxyNote}{Note}
+This function does not do anything to the state at timestep N, and the action at timestep N-\/1. 
+\end{DoxyNote}
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_a275879a8547e227a41a85a60e43c59d1}\index{mpclib::OCPQP@{mpclib::OCPQP}!relinearize@{relinearize}}
+\index{relinearize@{relinearize}!mpclib::OCPQP@{mpclib::OCPQP}}
+\doxysubsubsection{\texorpdfstring{relinearize()}{relinearize()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_q_p_a275879a8547e227a41a85a60e43c59d1} 
+void OCPQP::\+relinearize (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} $>$ \&}]{x}{, }\item[{const std::\+vector$<$ \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} $>$ \&}]{u}{, }\item[{float}]{first\+\_\+stage\+\_\+dt\+\_\+override}{ = {\ttfamily -\/1.0f}}\end{DoxyParamCaption})}
+
+
+
+Relinearize the model dynamics from a sequence of states and actions. 
+
+Similar to \doxylink{structmpclib_1_1_o_c_p_q_p_a2c358db02a2a3676c16a21dc3be1e1b4}{relinearize}, but this function will set the dynamics matricies at each timestep to the ones computed from the state and action pairs. Note that this differs from relinearize(\+Vec x, const std::\+vector$<$\+Vec$>$\& u) in that it does not evolve any states.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & States to linearize around at each timestep. \\
+\hline
+{\em u} & Actions to linearize around at each timestep. \\
+\hline
+{\em first\+\_\+stage\+\_\+dt\+\_\+override} & Override the time step for the first stage. If negative, the default time step from the model parameters is used.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classmpclib_1_1_model_a139cee651ab6dfad56c9f7950340f559}{mpclib::\+\+Model::\+autodiff} 
+\end{DoxySeeAlso}
+\begin{DoxyNote}{Note}
+If the size of {\ttfamily u} or {\ttfamily x} is less than {\ttfamily N}, the last state \& action will be used to fill the rest of the dynamics matricies. Additionally, if the size of {\ttfamily x} differs from {\ttfamily u}, the smaller of the two will be used. 
+\end{DoxyNote}
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_a2c358db02a2a3676c16a21dc3be1e1b4}\index{mpclib::OCPQP@{mpclib::OCPQP}!relinearize@{relinearize}}
+\index{relinearize@{relinearize}!mpclib::OCPQP@{mpclib::OCPQP}}
+\doxysubsubsection{\texorpdfstring{relinearize()}{relinearize()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_q_p_a2c358db02a2a3676c16a21dc3be1e1b4} 
+void OCPQP::\+relinearize (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} \&}]{x}{, }\item[{const \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} \&}]{u}{, }\item[{float}]{first\+\_\+stage\+\_\+dt\+\_\+override}{ = {\ttfamily -\/1.0f}}\end{DoxyParamCaption})}
+
+
+
+Relinearize the model dynamics using a single state and input. 
+
+This function will compute the jacobian of the model dynamics and set the linearized dynamics in the QP problem. This is used to approximate nonlinear models with a linear one -\/ specifically, a first order taylor expansion, where $ f(x, u) \approx J_{x}x + J_{u}u + [f(x_{nom}, u_{nom}) - J_{x}x_{nom} - J_{u}u_{nom}] $
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & State vector to linearize around. \\
+\hline
+{\em u} & Action vector to linearize around. \\
+\hline
+{\em first\+\_\+stage\+\_\+dt\+\_\+override} & Override the time step for the first stage. If negative, the default time step from the model parameters is used.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classmpclib_1_1_model_a139cee651ab6dfad56c9f7950340f559}{mpclib::\+\+Model::\+autodiff} 
+\end{DoxySeeAlso}
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_a5b38c1a4bb1b9e8219bfa8172b66745b}\index{mpclib::OCPQP@{mpclib::OCPQP}!relinearize@{relinearize}}
+\index{relinearize@{relinearize}!mpclib::OCPQP@{mpclib::OCPQP}}
+\doxysubsubsection{\texorpdfstring{relinearize()}{relinearize()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_q_p_a5b38c1a4bb1b9e8219bfa8172b66745b} 
+void OCPQP::\+relinearize (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}}}]{x}{, }\item[{const std::\+vector$<$ \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} $>$ \&}]{u}{, }\item[{float}]{first\+\_\+stage\+\_\+dt\+\_\+override}{ = {\ttfamily -\/1.0f}}\end{DoxyParamCaption})}
+
+
+
+Relinearize the model dynamics by evolving a state from a sequence of actions. 
+
+Similar to \doxylink{structmpclib_1_1_o_c_p_q_p_a2c358db02a2a3676c16a21dc3be1e1b4}{relinearize}, but this function will evolve the state using the model dynamics \doxylink{classmpclib_1_1_model_a866622a1db5e0762e60a3149e5bea84f}{mpclib::\+\+Model::\+infer} and the sequence of actions. This essentially "{}predicts"{} the future states of the model, and moves the operating points to the predicted states each state. This prevents errors from linearization in highly non-\/linear models, when $ x $ is far from $ x_{nom} $, or when $ u $ is far from $ u_{nom} $.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & the initial state to evolve from. \\
+\hline
+{\em u} & list of actions to evolve the state with. \\
+\hline
+{\em first\+\_\+stage\+\_\+dt\+\_\+override} & Override the time step for the first stage. If negative, the default time step from the model parameters is used.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classmpclib_1_1_model_a139cee651ab6dfad56c9f7950340f559}{mpclib::\+\+Model::\+autodiff} 
+\end{DoxySeeAlso}
+\begin{DoxyNote}{Note}
+If the size of {\ttfamily u} is less than {\ttfamily N}, the last state \& action will be used to fill the rest of the dynamics matricies. 
+\end{DoxyNote}
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_addb8b04aa59b8c68462a6237439060de}\index{mpclib::OCPQP@{mpclib::OCPQP}!set\_initial\_state@{set\_initial\_state}}
+\index{set\_initial\_state@{set\_initial\_state}!mpclib::OCPQP@{mpclib::OCPQP}}
+\doxysubsubsection{\texorpdfstring{set\_initial\_state()}{set\_initial\_state()}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_q_p_addb8b04aa59b8c68462a6237439060de} 
+void OCPQP::\+set\+\_\+initial\+\_\+state (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} \&}]{x}{}\end{DoxyParamCaption})}
+
+
+
+Constrain the current state. 
+
+In HPIPM, the initial state is set as both the lower and upper bounds of the state variable. This constrains all future states, which are states in timesteps from $ [1, N] $ to evolve from the initial state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Initial state vector. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_aecb524f8ebe4abb5e5ebbd0c804eaff0}\index{mpclib::OCPQP@{mpclib::OCPQP}!set\_target\_input@{set\_target\_input}}
+\index{set\_target\_input@{set\_target\_input}!mpclib::OCPQP@{mpclib::OCPQP}}
+\doxysubsubsection{\texorpdfstring{set\_target\_input()}{set\_target\_input()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_q_p_aecb524f8ebe4abb5e5ebbd0c804eaff0} 
+void mpclib::\+\+OCPQP::\+set\+\_\+target\+\_\+input (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} $>$ \&}]{u\+\_\+desired}{}\end{DoxyParamCaption})}
+
+
+
+Set possibly unique target inputs in each timestep. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u\+\_\+desired} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_ac92e8b3e03e4ce5680cc95235e661387}\index{mpclib::OCPQP@{mpclib::OCPQP}!set\_target\_input@{set\_target\_input}}
+\index{set\_target\_input@{set\_target\_input}!mpclib::OCPQP@{mpclib::OCPQP}}
+\doxysubsubsection{\texorpdfstring{set\_target\_input()}{set\_target\_input()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_q_p_ac92e8b3e03e4ce5680cc95235e661387} 
+void mpclib::\+\+OCPQP::\+set\+\_\+target\+\_\+input (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} \&}]{u\+\_\+desired}{}\end{DoxyParamCaption})}
+
+
+
+Set a single target input across all N timesteps. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u\+\_\+desired} & Desired action vector to achieve \\
+\hline
+\end{DoxyParams}
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_adea2b5560cdd90fa9cce6b8127cd48c8}\index{mpclib::OCPQP@{mpclib::OCPQP}!set\_target\_state@{set\_target\_state}}
+\index{set\_target\_state@{set\_target\_state}!mpclib::OCPQP@{mpclib::OCPQP}}
+\doxysubsubsection{\texorpdfstring{set\_target\_state()}{set\_target\_state()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_q_p_adea2b5560cdd90fa9cce6b8127cd48c8} 
+void OCPQP::\+set\+\_\+target\+\_\+state (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} $>$ \&}]{x\+\_\+desired}{}\end{DoxyParamCaption})}
+
+
+
+Set possibly unique target states in each timestep. 
+
+At each timestep $ i $ in the range $ [1, N] $, the target state is set to the $ i-1 $ element in the list.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+\_\+desired} & List of desired states to achieve at each timestep \\
+\hline
+\end{DoxyParams}
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_a0b6d1ba7b5c5a174e7c60945a3523355}\index{mpclib::OCPQP@{mpclib::OCPQP}!set\_target\_state@{set\_target\_state}}
+\index{set\_target\_state@{set\_target\_state}!mpclib::OCPQP@{mpclib::OCPQP}}
+\doxysubsubsection{\texorpdfstring{set\_target\_state()}{set\_target\_state()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_q_p_a0b6d1ba7b5c5a174e7c60945a3523355} 
+void OCPQP::\+set\+\_\+target\+\_\+state (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} \&}]{x\+\_\+desired}{}\end{DoxyParamCaption})}
+
+
+
+Set a single target state across all N timesteps. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+\_\+desired} & Desired state vector to achieve \\
+\hline
+\end{DoxyParams}
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_aafa929c667d6ca84d1c0c5cd151fbc27}\index{mpclib::OCPQP@{mpclib::OCPQP}!solve@{solve}}
+\index{solve@{solve}!mpclib::OCPQP@{mpclib::OCPQP}}
+\doxysubsubsection{\texorpdfstring{solve()}{solve()}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_q_p_aafa929c667d6ca84d1c0c5cd151fbc27} 
+int OCPQP::\+solve (\begin{DoxyParamCaption}\item[{bool}]{silent}{ = {\ttfamily true}}\end{DoxyParamCaption})}
+
+
+
+Solves the OCP problem using HPIPM. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em silent} & Whether to suppress output to {\ttfamily cout} upon an error from the solver\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int HPIPM solver status code 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\href{https://github.com/giaf/hpipm/blob/master/include/hpipm_common.h}{\texttt{https:\+/\+/\+github.\+com/\+giaf/\+hpipm/\+blob/\+master/\+include/\+hpipm\+\_\+common.\+h}} for return code meanings 
+\end{DoxySeeAlso}
+
+
+\label{doc-variable-members}
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_a3424364991c865bd8bec34003a7fd1a6}\index{mpclib::OCPQP@{mpclib::OCPQP}!dim@{dim}}
+\index{dim@{dim}!mpclib::OCPQP@{mpclib::OCPQP}}
+\doxysubsubsection{\texorpdfstring{dim}{dim}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_q_p_a3424364991c865bd8bec34003a7fd1a6} 
+s\+\_\+ocp\+\_\+qp\+\_\+dim mpclib::\+\+OCPQP::\+dim}
+
+
+
+HPIPM dimension object. 
+
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_ac04a63f8863a0b8b96f1f03a9fbd54d6}\index{mpclib::OCPQP@{mpclib::OCPQP}!dim\_mem@{dim\_mem}}
+\index{dim\_mem@{dim\_mem}!mpclib::OCPQP@{mpclib::OCPQP}}
+\doxysubsubsection{\texorpdfstring{dim\_mem}{dim\_mem}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_q_p_ac04a63f8863a0b8b96f1f03a9fbd54d6} 
+void\texorpdfstring{$\ast$}{*} mpclib::\+\+OCPQP::\+dim\+\_\+mem}
+
+
+
+Memory for HPIPM dimension object. 
+
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_aaba07d42fa5b613079ea22620857ccb0}\index{mpclib::OCPQP@{mpclib::OCPQP}!ipm\_arg@{ipm\_arg}}
+\index{ipm\_arg@{ipm\_arg}!mpclib::OCPQP@{mpclib::OCPQP}}
+\doxysubsubsection{\texorpdfstring{ipm\_arg}{ipm\_arg}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_q_p_aaba07d42fa5b613079ea22620857ccb0} 
+s\+\_\+ocp\+\_\+qp\+\_\+ipm\+\_\+arg mpclib::\+\+OCPQP::\+ipm\+\_\+arg}
+
+
+
+HPIPM solver argument object. 
+
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_a54f5d7ecbc7dc6a496008c83895e97d2}\index{mpclib::OCPQP@{mpclib::OCPQP}!ipm\_arg\_mem@{ipm\_arg\_mem}}
+\index{ipm\_arg\_mem@{ipm\_arg\_mem}!mpclib::OCPQP@{mpclib::OCPQP}}
+\doxysubsubsection{\texorpdfstring{ipm\_arg\_mem}{ipm\_arg\_mem}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_q_p_a54f5d7ecbc7dc6a496008c83895e97d2} 
+void\texorpdfstring{$\ast$}{*} mpclib::\+\+OCPQP::\+ipm\+\_\+arg\+\_\+mem}
+
+
+
+Memory for HPIPM solver argument object. 
+
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_a5798acff889689126779fce511177b02}\index{mpclib::OCPQP@{mpclib::OCPQP}!ipm\_mem@{ipm\_mem}}
+\index{ipm\_mem@{ipm\_mem}!mpclib::OCPQP@{mpclib::OCPQP}}
+\doxysubsubsection{\texorpdfstring{ipm\_mem}{ipm\_mem}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_q_p_a5798acff889689126779fce511177b02} 
+void\texorpdfstring{$\ast$}{*} mpclib::\+\+OCPQP::\+ipm\+\_\+mem}
+
+
+
+Memory for HPIPM workspace. 
+
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_a72bd637780587f8c14cad7e70f6ae473}\index{mpclib::OCPQP@{mpclib::OCPQP}!model@{model}}
+\index{model@{model}!mpclib::OCPQP@{mpclib::OCPQP}}
+\doxysubsubsection{\texorpdfstring{model}{model}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_q_p_a72bd637780587f8c14cad7e70f6ae473} 
+const \doxymbox{\hyperlink{classmpclib_1_1_model}{Model}}\& mpclib::\+\+OCPQP::\+model}
+
+
+
+Reference to the model defining system dynamics and constraints. 
+
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_a957c120aed8c32dcd91b586a48e38d1c}\index{mpclib::OCPQP@{mpclib::OCPQP}!ocp\_params@{ocp\_params}}
+\index{ocp\_params@{ocp\_params}!mpclib::OCPQP@{mpclib::OCPQP}}
+\doxysubsubsection{\texorpdfstring{ocp\_params}{ocp\_params}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_q_p_a957c120aed8c32dcd91b586a48e38d1c} 
+const \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_params}{OCPParams}}\& mpclib::\+\+OCPQP::\+ocp\+\_\+params}
+
+
+
+Reference to OCP configuration. 
+
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_ac7a2e50aedeb44cf942498357d1528d1}\index{mpclib::OCPQP@{mpclib::OCPQP}!qp@{qp}}
+\index{qp@{qp}!mpclib::OCPQP@{mpclib::OCPQP}}
+\doxysubsubsection{\texorpdfstring{qp}{qp}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_q_p_ac7a2e50aedeb44cf942498357d1528d1} 
+s\+\_\+ocp\+\_\+qp mpclib::\+\+OCPQP::\+qp}
+
+
+
+HPIPM QP object. 
+
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_aa0578559c3be1db57778327a4370610a}\index{mpclib::OCPQP@{mpclib::OCPQP}!qp\_mem@{qp\_mem}}
+\index{qp\_mem@{qp\_mem}!mpclib::OCPQP@{mpclib::OCPQP}}
+\doxysubsubsection{\texorpdfstring{qp\_mem}{qp\_mem}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_q_p_aa0578559c3be1db57778327a4370610a} 
+void\texorpdfstring{$\ast$}{*} mpclib::\+\+OCPQP::\+qp\+\_\+mem}
+
+
+
+Memory for HPIPM QP object. 
+
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_adab4b345e68b1c05ad42e869520e00c8}\index{mpclib::OCPQP@{mpclib::OCPQP}!qp\_sol@{qp\_sol}}
+\index{qp\_sol@{qp\_sol}!mpclib::OCPQP@{mpclib::OCPQP}}
+\doxysubsubsection{\texorpdfstring{qp\_sol}{qp\_sol}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_q_p_adab4b345e68b1c05ad42e869520e00c8} 
+s\+\_\+ocp\+\_\+qp\+\_\+sol mpclib::\+\+OCPQP::\+qp\+\_\+sol}
+
+
+
+HPIPM solution object. 
+
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_a49acac9213ac89b2321a309d86c0c656}\index{mpclib::OCPQP@{mpclib::OCPQP}!qp\_sol\_mem@{qp\_sol\_mem}}
+\index{qp\_sol\_mem@{qp\_sol\_mem}!mpclib::OCPQP@{mpclib::OCPQP}}
+\doxysubsubsection{\texorpdfstring{qp\_sol\_mem}{qp\_sol\_mem}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_q_p_a49acac9213ac89b2321a309d86c0c656} 
+void\texorpdfstring{$\ast$}{*} mpclib::\+\+OCPQP::\+qp\+\_\+sol\+\_\+mem}
+
+
+
+Memory for HPIPM solution object. 
+
+\Hypertarget{structmpclib_1_1_o_c_p_q_p_a8edff0fe3940125f6fa96d27bd60b642}\index{mpclib::OCPQP@{mpclib::OCPQP}!workspace@{workspace}}
+\index{workspace@{workspace}!mpclib::OCPQP@{mpclib::OCPQP}}
+\doxysubsubsection{\texorpdfstring{workspace}{workspace}}
+{\footnotesize\ttfamily \label{structmpclib_1_1_o_c_p_q_p_a8edff0fe3940125f6fa96d27bd60b642} 
+s\+\_\+ocp\+\_\+qp\+\_\+ipm\+\_\+ws mpclib::\+\+OCPQP::\+workspace}
+
+
+
+HPIPM workspace object. 
+
+
+
+The documentation for this struct was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+include/\+mpclib/\+\doxymbox{\hyperlink{ocp_8h}{ocp.\+h}}\item 
+src/\+mpclib/\+\doxymbox{\hyperlink{ocp_8cpp}{ocp.\+cpp}}\end{DoxyCompactItemize}

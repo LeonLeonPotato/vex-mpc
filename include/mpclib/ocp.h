@@ -1,6 +1,6 @@
 /**
  * @file ocp.h
- * @author Leon
+ * @author Lena
  * @brief Wrapper class of the Optimal Control Problem Quadratic Programming (OCP-QP) solver using HPIPM.
  *
  * @details
@@ -128,7 +128,10 @@ struct OCPQP {
      * 
      * @see @ref mpclib::Model::autodiff
      */
-    void relinearize(const Vec& x, const Vec& u, float first_stage_dt_override = -1.0f);
+    void relinearize(
+        const Vec& x, 
+        const Vec& u, 
+        std::optional<float> first_stage_dt_override = std::nullopt);
 
     /**
      * @brief Relinearize the model dynamics by evolving a state from a sequence of actions
@@ -147,7 +150,10 @@ struct OCPQP {
      * @see @ref mpclib::Model::autodiff
      * @note If the size of `u` is less than `N`, the last state & action will be used to fill the rest of the dynamics matricies.
      */
-    void relinearize(Vec x, const std::vector<Vec>& u, float first_stage_dt_override = -1.0f);
+    void relinearize(
+        Vec x, 
+        const std::vector<Vec>& u, 
+        std::optional<float> first_stage_dt_override = std::nullopt);
 
     /**
      * @brief Relinearize the model dynamics from a sequence of states and actions
@@ -165,7 +171,10 @@ struct OCPQP {
      * @note If the size of `u` or `x` is less than `N`, the last state & action will be used to fill the rest of the dynamics matricies.
      * Additionally, if the size of `x` differs from `u`, the smaller of the two will be used.
      */
-    void relinearize(const std::vector<Vec>& x, const std::vector<Vec>& u, float first_stage_dt_override = -1.0f);
+    void relinearize(
+        const std::vector<Vec>& x, 
+        const std::vector<Vec>& u, 
+        std::optional<float> first_stage_dt_override = std::nullopt);
 
     /**
      * @brief Set a single target state across all N timesteps

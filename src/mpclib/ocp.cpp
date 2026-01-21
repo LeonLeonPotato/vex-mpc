@@ -1,5 +1,6 @@
 /**
  * @file ocp.cpp
+ * @author Lena
  * @brief Wrapper class of the Optimal Control Problem Quadratic Programming (OCP-QP) solver using HPIPM.
  * 
  * This file contains the implementation of the OCPQP class, which is responsible for setting up and solving
@@ -100,7 +101,7 @@ static void create_bounds_from_constraints(float* lower, float* upper, const std
 }
 
 /**
- * @brief Prints an array to terminal
+ * @brief Prints an array to stdout
  * @note Used for debugging
  * 
  * @tparam T the type of every element in the array
@@ -198,13 +199,6 @@ void OCPQP::setup_dimensions() {
     // TODO: implement soft constraining in model
     int soft_bounds[ocp_params.N + 1];
     std::fill_n(soft_bounds, ocp_params.N + 1, 0);
-
-    std::cout << "State space: "; print_arr(state_space, ocp_params.N + 1);
-    std::cout << "Action space: "; print_arr(action_space, ocp_params.N + 1);
-    std::cout << "State bounds: "; print_arr(state_bounds, ocp_params.N + 1);
-    std::cout << "Action bounds: "; print_arr(action_bounds, ocp_params.N + 1);
-    std::cout << "General bounds: "; print_arr(general_bounds, ocp_params.N + 1);
-    std::cout << "Soft bounds: "; print_arr(soft_bounds, ocp_params.N + 1);
 
     // Pass into HPIPM
     s_ocp_qp_dim_set_all(state_space, action_space,
@@ -331,8 +325,8 @@ void OCPQP::set_initial_state(const Vec& x) {
     s_ocp_qp_set_ubx(0, const_cast<float*>(x.data()), &qp);
 }
 
-void OCPQP::relinearize(const Vec& x, const Vec& u, float first_stage_dt_override) {
-    float dt = first_stage_dt_override < 0.0f ? model.get_params().dt : first_stage_dt_override;
+void OCPQP::relinearize(const Vec& x, const Vec& u, std::optional<float> first_stage_dt_override) {
+    float dt = first_stage_dt_override.value_or(model.get_params().dt);
     // First, we linearize with dt override
     ADVec fout;
     ADVec ad_x = x.cast<autodiff::real>();
@@ -341,8 +335,7 @@ void OCPQP::relinearize(const Vec& x, const Vec& u, float first_stage_dt_overrid
     Mat ju = autodiff::jacobian(autodiff_model_wrapper, autodiff::wrt(ad_u), autodiff::at(model, ad_x, ad_u, (double) dt), fout).cast<float>();
     Vec c = fout.cast<float>() - (jx * x) - (ju * u);
 
-    std::cout << dt << std::endl;
-
+    // set t = 0 dynamics here
     s_ocp_qp_set_A(0, jx.data(), &qp);
     s_ocp_qp_set_B(0, ju.data(), &qp);
     s_ocp_qp_set_b(0, c.data(), &qp);
@@ -362,14 +355,14 @@ void OCPQP::relinearize(const Vec& x, const Vec& u, float first_stage_dt_overrid
     }
 }
 
-void OCPQP::relinearize(Vec x, const std::vector<Vec>& u, float first_stage_dt_override) {
+void OCPQP::relinearize(Vec x, const std::vector<Vec>& u, std::optional<float> first_stage_dt_override) {
     ADVec ad_x = x.cast<autodiff::real>();
     Mat jx, ju;
     Vec c;
     for (int i = 0; i < u.size(); i++) {
         ADVec fout;
         ADVec ad_u = u[i].cast<autodiff::real>();
-        double dt = (first_stage_dt_override > 0.0f && i == 0) ? first_stage_dt_override : model.get_params().dt;
+        double dt = i == 0 ? first_stage_dt_override.value_or(model.get_params().dt) : model.get_params().dt;
         jx = autodiff::jacobian(autodiff_model_wrapper, autodiff::wrt(ad_x), autodiff::at(model, ad_x, ad_u, dt), fout).cast<float>();
         ju = autodiff::jacobian(autodiff_model_wrapper, autodiff::wrt(ad_u), autodiff::at(model, ad_x, ad_u, dt), fout).cast<float>();
         c = fout.cast<float>() - (jx * x) - (ju * u[i]);
@@ -388,7 +381,7 @@ void OCPQP::relinearize(Vec x, const std::vector<Vec>& u, float first_stage_dt_o
     }
 }
 
-void OCPQP::relinearize(const std::vector<Vec>& x, const std::vector<Vec>& u, float first_stage_dt_override) {
+void OCPQP::relinearize(const std::vector<Vec>& x, const std::vector<Vec>& u, std::optional<float> first_stage_dt_override) {
     Mat jx, ju;
     Vec c;
 
@@ -396,7 +389,7 @@ void OCPQP::relinearize(const std::vector<Vec>& x, const std::vector<Vec>& u, fl
         ADVec fout;
         ADVec ad_x = x[i].cast<autodiff::real>();
         ADVec ad_u = u[i].cast<autodiff::real>();
-        double dt = (first_stage_dt_override > 0.0f && i == 0) ? first_stage_dt_override : model.get_params().dt;
+        double dt = i == 0 ? first_stage_dt_override.value_or(model.get_params().dt) : model.get_params().dt;
         jx = autodiff::jacobian(autodiff_model_wrapper, autodiff::wrt(ad_x), autodiff::at(model, ad_x, ad_u, dt), fout).cast<float>();
         ju = autodiff::jacobian(autodiff_model_wrapper, autodiff::wrt(ad_u), autodiff::at(model, ad_x, ad_u, dt), fout).cast<float>();
         c = fout.cast<float>() - (jx * x[i]) - (ju * u[i]);
@@ -414,8 +407,11 @@ void OCPQP::relinearize(const std::vector<Vec>& x, const std::vector<Vec>& u, fl
 }
 
 void OCPQP::set_target_state(const Vec& x_desired) {
+    Vec q1_cost = -ocp_params.Q1 * x_desired;
+    s_ocp_qp_set_q(1, q1_cost.data(), &qp);
+
     Vec q_cost = -ocp_params.Q * x_desired;
-    for (int i = 1; i < ocp_params.N; i++) {
+    for (int i = 2; i < ocp_params.N; i++) {
         s_ocp_qp_set_q(i, q_cost.data(), &qp);
     }
 
@@ -444,6 +440,37 @@ void OCPQP::set_target_state(const std::vector<Vec>& x_desired) {
     q_cost = -ocp_params.Qf * x_desired[ocp_params.N-1];
     s_ocp_qp_set_q(ocp_params.N, q_cost.data(), &qp);
 }
+
+void OCPQP::set_target_input(const Vec& u_desired) {
+    Vec r0_cost = -ocp_params.R0 * u_desired;
+    s_ocp_qp_set_r(0, r0_cost.data(), &qp);
+
+    Vec r_cost = -ocp_params.R * u_desired;
+    for (int i = 1; i < ocp_params.N-1; i++) {
+        s_ocp_qp_set_r(i, r_cost.data(), &qp);
+    }
+
+    Vec rf_cost = -ocp_params.Rf * u_desired;
+    s_ocp_qp_set_r(ocp_params.N-1, rf_cost.data(), &qp);
+}
+
+void OCPQP::set_target_input(const std::vector<Vec>& u_desired) {
+    if (u_desired.size() != ocp_params.N) {
+        throw std::invalid_argument("u_desired size must match the number of timesteps (N)");
+    }
+
+    Vec r0_cost = -ocp_params.R0 * u_desired[0];
+    s_ocp_qp_set_r(0, r0_cost.data(), &qp);
+
+    for (int i = 1; i < ocp_params.N-1; i++) {
+        Vec r_cost = -ocp_params.R * u_desired[i-1];
+        s_ocp_qp_set_r(i, r_cost.data(), &qp);
+    }
+
+    Vec rf_cost = -ocp_params.Rf * u_desired[ocp_params.N-1];
+    s_ocp_qp_set_r(ocp_params.N-1, rf_cost.data(), &qp);
+}
+
 
 int OCPQP::solve(bool silent) {
     s_ocp_qp_ipm_solve(&qp, &qp_sol, &ipm_arg, &workspace);

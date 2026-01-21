@@ -1,6 +1,6 @@
 /**
  * @file base_model.h
- * @author Leon
+ * @author Lena
  * @brief Base model class for the library
  * @date 2025-04-20
  */
@@ -85,20 +85,20 @@ public:
      * 
      * @param x Input state
      * @param u Input action
-     * @param dt_override Override the time step for this prediction. If negative, the default time step from the model parameters is used.
+     * @param dt_override Override the time step for this prediction. If is nullopt, use the model's default time step.
      * @return ADVec - Predicted next state with the model dynamics given the input and action
      */
-    virtual ADVec autodiff(const ADVec& x, const ADVec& u, double dt_override) const = 0;
+    virtual ADVec autodiff(const ADVec& x, const ADVec& u, std::optional<double> dt_override) const = 0;
 
     /**
      * @brief Predict the next state using the model dynamics
      * 
      * @param x Input state
      * @param u Input action
-     * @param dt_override Override the time step for this prediction. If negative, the default time step from the model parameters is used.
+     * @param dt_override Override the time step for this prediction. If is nullopt, use the model's default time step.
      * @return Vec - Predicted next state with the model dynamics given the input and action
      */
-    virtual Vec infer(const Vec& x, const Vec& u, float dt_override) const = 0;
+    virtual Vec infer(const Vec& x, const Vec& u, std::optional<float> dt_override) const = 0;
 
     /**
      * @brief Get the state constraints

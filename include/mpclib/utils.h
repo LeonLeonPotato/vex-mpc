@@ -1,6 +1,6 @@
 /** 
  * @file utils.h
- * @author Leon
+ * @author Lena
  * @brief Common types and mathematical helper functions for MPC
  * 
  * @details
@@ -18,15 +18,15 @@
 namespace mpclib {
 /// Column vector for autodiff. Internal autodiff types are used
 using ADVec = autodiff::VectorXreal;
-/// Column vector for Eigen, floating point is used
+/// Column vector for Eigen, 32 bit floating point is used
 using Vec =  Eigen::VectorX<float>;
-/// Dense matrix for autodiff. floating point is used
+/// Dense matrix for autodiff. 32 bit floating point is used
 using Mat = Eigen::MatrixX<float>;
-/// Sparse Matrix for Eigen, floating point is used
+/// Sparse Matrix for Eigen, 32 bit floating point is used
 using SPMat = Eigen::SparseMatrix<float>;
 
 /**
- * @brief Numerically stable normalized sinc function.
+ * @brief Numerically stable \f$ \operatorname{sinc} \f$ function.
  *
  * @details
  * Computes \f$ \mathrm{sinc}(x) = \sin(x)/x \f$.  

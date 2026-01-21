@@ -426,7 +426,7 @@ Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classmpclib_1_1_model.html#a139cee651ab6dfad56c9f7950340f559" title="mpclib::Model::autodiff">mpclib::Model::autodiff</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classmpclib_1_1_model.html#ace060ee26806a36e6f75fac73e3e7b8e" title="mpclib::Model::autodiff">mpclib::Model::autodiff</a> </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>If the size of <span class="tt">u</span> or <span class="tt">x</span> is less than <span class="tt">N</span>, the last state &amp; action will be used to fill the rest of the dynamics matricies. Additionally, if the size of <span class="tt">x</span> differs from <span class="tt">u</span>, the smaller of the two will be used. </dd></dl>
 
 </div>
@@ -465,7 +465,7 @@ Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classmpclib_1_1_model.html#a139cee651ab6dfad56c9f7950340f559" title="mpclib::Model::autodiff">mpclib::Model::autodiff</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classmpclib_1_1_model.html#ace060ee26806a36e6f75fac73e3e7b8e" title="mpclib::Model::autodiff">mpclib::Model::autodiff</a> </dd></dl>
 
 </div>
 </div>
@@ -494,7 +494,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Relinearize the model dynamics by evolving a state from a sequence of actions. </p>
-<p>Similar to <a class="el" href="#a2c358db02a2a3676c16a21dc3be1e1b4" title="relinearize">relinearize</a>, but this function will evolve the state using the model dynamics <a class="el" href="classmpclib_1_1_model.html#a866622a1db5e0762e60a3149e5bea84f" title="mpclib::Model::infer">mpclib::Model::infer</a> and the sequence of actions. This essentially "predicts" the future states of the model, and moves the operating points to the predicted states each state. This prevents errors from linearization in highly non-linear models, when \( x \) is far from \( x_{nom} \), or when \( u \) is far from \( u_{nom} \).</p>
+<p>Similar to <a class="el" href="#a2c358db02a2a3676c16a21dc3be1e1b4" title="relinearize">relinearize</a>, but this function will evolve the state using the model dynamics <a class="el" href="classmpclib_1_1_model.html#a8e844c57a4f86ce793511e1c771e39a6" title="mpclib::Model::infer">mpclib::Model::infer</a> and the sequence of actions. This essentially "predicts" the future states of the model, and moves the operating points to the predicted states each state. This prevents errors from linearization in highly non-linear models, when \( x \) is far from \( x_{nom} \), or when \( u \) is far from \( u_{nom} \).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">x</td><td>the initial state to evolve from. </td></tr>
@@ -503,7 +503,7 @@ Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classmpclib_1_1_model.html#a139cee651ab6dfad56c9f7950340f559" title="mpclib::Model::autodiff">mpclib::Model::autodiff</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classmpclib_1_1_model.html#ace060ee26806a36e6f75fac73e3e7b8e" title="mpclib::Model::autodiff">mpclib::Model::autodiff</a> </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>If the size of <span class="tt">u</span> is less than <span class="tt">N</span>, the last state &amp; action will be used to fill the rest of the dynamics matricies. </dd></dl>
 
 </div>

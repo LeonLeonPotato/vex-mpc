@@ -8,5 +8,5 @@ var searchData=
   ['solve_5',['solve',['../structmpclib_1_1_o_c_p_q_p.html#aafa929c667d6ca84d1c0c5cd151fbc27',1,'mpclib::OCPQP']]],
   ['split_6',['split',['../localization_8cpp.html#ac51849eecd2f6e4dcd77671bfdfd97d5',1,'localization.cpp']]],
   ['state_5fconstraints_7',['state_constraints',['../classmpclib_1_1_model.html#a04f2f7926590be1a727dff75d749883c',1,'mpclib::Model']]],
-  ['state_5fsize_8',['state_size',['../classmpclib_1_1_model.html#a58739634bf1d03f0069db9751fc81c91',1,'mpclib::Model::state_size()'],['../classmpclib_1_1_drive_model.html#ac6335c0380711e8d93fafd75cef84a72',1,'mpclib::DriveModel::state_size()']]]
+  ['state_5fsize_8',['state_size',['../classmpclib_1_1_model.html#a58739634bf1d03f0069db9751fc81c91',1,'mpclib::Model::state_size()'],['../classmpclib_1_1_differential_drive_model.html#a591600ead43f1e1188878e4b50ef9b0d',1,'mpclib::DifferentialDriveModel::state_size()']]]
 ];

@@ -106,8 +106,6 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a lower bound &amp; upper bound constraint on a variable.  <a href="structmpclib_1_1_constraint.html#details">More...</a><br /></td></tr>
 <tr class="memitem:Model" id="r_Model"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="classmpclib_1_1_model.html">Model</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract base class for dynamic models used in model predictive control (MPC).  <a href="classmpclib_1_1_model.html#details">More...</a><br /></td></tr>
-<tr class="memitem:DriveModel" id="r_DriveModel"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="classmpclib_1_1_drive_model.html">DriveModel</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for drive models in the library.  <a href="classmpclib_1_1_drive_model.html#details">More...</a><br /></td></tr>
 <tr class="memitem:DifferentialDriveModel" id="r_DifferentialDriveModel"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="classmpclib_1_1_differential_drive_model.html">DifferentialDriveModel</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A model representing a differential drive robot.  <a href="classmpclib_1_1_differential_drive_model.html#details">More...</a><br /></td></tr>
 <tr class="memitem:OCPParams" id="r_OCPParams"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structmpclib_1_1_o_c_p_params.html">OCPParams</a></td></tr>
@@ -130,7 +128,7 @@ Typedefs</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:ab6bbb63786365de7b0c0653c363b0fd8" id="r_ab6bbb63786365de7b0c0653c363b0fd8"><td class="memTemplParams" colspan="2">template&lt;typename T, typename = std::enable_if_t&lt;std::is_arithmetic&lt;T&gt;::value&gt;&gt; </td></tr>
 <tr class="memitem:ab6bbb63786365de7b0c0653c363b0fd8 template"><td class="memItemLeft">static T&#160;</td><td class="memItemRight"><a class="el" href="#ab6bbb63786365de7b0c0653c363b0fd8">sinc</a> (T x)</td></tr>
-<tr class="memdesc:ab6bbb63786365de7b0c0653c363b0fd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Numerically stable normalized sinc function.  <br /></td></tr>
+<tr class="memdesc:ab6bbb63786365de7b0c0653c363b0fd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Numerically stable \( \operatorname{sinc} \) function.  <br /></td></tr>
 <tr class="memitem:a9e0945d7e2b4199bfc9b0aa046b2bbae" id="r_a9e0945d7e2b4199bfc9b0aa046b2bbae"><td class="memTemplParams" colspan="2">template&lt;typename T, typename = std::enable_if_t&lt;std::is_arithmetic&lt;T&gt;::value&gt;&gt; </td></tr>
 <tr class="memitem:a9e0945d7e2b4199bfc9b0aa046b2bbae template"><td class="memItemLeft">static float&#160;</td><td class="memItemRight"><a class="el" href="#a9e0945d7e2b4199bfc9b0aa046b2bbae">average</a> (const std::vector&lt; T &gt; &amp;vec)</td></tr>
 <tr class="memdesc:a9e0945d7e2b4199bfc9b0aa046b2bbae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mean value of a sequence using Kahan compensated summation.  <br /></td></tr>
@@ -348,7 +346,7 @@ template&lt;typename T, typename = std::enable_if_t&lt;std::is_arithmetic&lt;T&g
 </table>
 </div><div class="memdoc">
 
-<p>Numerically stable normalized sinc function. </p>
+<p>Numerically stable \( \operatorname{sinc} \) function. </p>
 <p>Computes \( \mathrm{sinc}(x) = \sin(x)/x \). <br  />
  For \( |x| &lt; 10^{-3} \) a 4th‑order Taylor series approximation is returned to avoid catastrophic cancellation:   </p><p class="formulaDsp">
 \[    \mathrm{sinc}(x) \approx 1 - \frac{x^{2}}{6}.

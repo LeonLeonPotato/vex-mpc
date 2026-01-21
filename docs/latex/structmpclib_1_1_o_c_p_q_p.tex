@@ -254,7 +254,7 @@ Similar to \doxylink{structmpclib_1_1_o_c_p_q_p_a2c358db02a2a3676c16a21dc3be1e1b
 \hline
 \end{DoxyParams}
 \begin{DoxySeeAlso}{See also}
-\doxylink{classmpclib_1_1_model_a139cee651ab6dfad56c9f7950340f559}{mpclib::\+\+Model::\+autodiff} 
+\doxylink{classmpclib_1_1_model_ace060ee26806a36e6f75fac73e3e7b8e}{mpclib::\+\+Model::\+autodiff} 
 \end{DoxySeeAlso}
 \begin{DoxyNote}{Note}
 If the size of {\ttfamily u} or {\ttfamily x} is less than {\ttfamily N}, the last state \& action will be used to fill the rest of the dynamics matricies. Additionally, if the size of {\ttfamily x} differs from {\ttfamily u}, the smaller of the two will be used. 
@@ -281,7 +281,7 @@ This function will compute the jacobian of the model dynamics and set the linear
 \hline
 \end{DoxyParams}
 \begin{DoxySeeAlso}{See also}
-\doxylink{classmpclib_1_1_model_a139cee651ab6dfad56c9f7950340f559}{mpclib::\+\+Model::\+autodiff} 
+\doxylink{classmpclib_1_1_model_ace060ee26806a36e6f75fac73e3e7b8e}{mpclib::\+\+Model::\+autodiff} 
 \end{DoxySeeAlso}
 \Hypertarget{structmpclib_1_1_o_c_p_q_p_a5b38c1a4bb1b9e8219bfa8172b66745b}\index{mpclib::OCPQP@{mpclib::OCPQP}!relinearize@{relinearize}}
 \index{relinearize@{relinearize}!mpclib::OCPQP@{mpclib::OCPQP}}
@@ -293,7 +293,7 @@ void OCPQP::\+relinearize (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{n
 
 Relinearize the model dynamics by evolving a state from a sequence of actions. 
 
-Similar to \doxylink{structmpclib_1_1_o_c_p_q_p_a2c358db02a2a3676c16a21dc3be1e1b4}{relinearize}, but this function will evolve the state using the model dynamics \doxylink{classmpclib_1_1_model_a866622a1db5e0762e60a3149e5bea84f}{mpclib::\+\+Model::\+infer} and the sequence of actions. This essentially "{}predicts"{} the future states of the model, and moves the operating points to the predicted states each state. This prevents errors from linearization in highly non-\/linear models, when $ x $ is far from $ x_{nom} $, or when $ u $ is far from $ u_{nom} $.
+Similar to \doxylink{structmpclib_1_1_o_c_p_q_p_a2c358db02a2a3676c16a21dc3be1e1b4}{relinearize}, but this function will evolve the state using the model dynamics \doxylink{classmpclib_1_1_model_a8e844c57a4f86ce793511e1c771e39a6}{mpclib::\+\+Model::\+infer} and the sequence of actions. This essentially "{}predicts"{} the future states of the model, and moves the operating points to the predicted states each state. This prevents errors from linearization in highly non-\/linear models, when $ x $ is far from $ x_{nom} $, or when $ u $ is far from $ u_{nom} $.
 
 
 \begin{DoxyParams}{Parameters}
@@ -305,7 +305,7 @@ Similar to \doxylink{structmpclib_1_1_o_c_p_q_p_a2c358db02a2a3676c16a21dc3be1e1b
 \hline
 \end{DoxyParams}
 \begin{DoxySeeAlso}{See also}
-\doxylink{classmpclib_1_1_model_a139cee651ab6dfad56c9f7950340f559}{mpclib::\+\+Model::\+autodiff} 
+\doxylink{classmpclib_1_1_model_ace060ee26806a36e6f75fac73e3e7b8e}{mpclib::\+\+Model::\+autodiff} 
 \end{DoxySeeAlso}
 \begin{DoxyNote}{Note}
 If the size of {\ttfamily u} is less than {\ttfamily N}, the last state \& action will be used to fill the rest of the dynamics matricies. 

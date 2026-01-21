@@ -1,6 +1,6 @@
 /**
  * @file diffdrive.h
- * @author Leon
+ * @author Lena
  * @brief Differential drive model
  * @date 2025-04-20
  */
@@ -69,11 +69,11 @@ public:
      * @return `constexpr int` The size of the action vector
      */
     constexpr int action_size() const override { return ACTION_SIZE; }
-    
+
     /// @copydoc mpclib::Model::autodiff
-    ADVec autodiff(const ADVec& x, const ADVec& u, double dt_override = -1) const override;
+    ADVec autodiff(const ADVec& x, const ADVec& u, std::optional<double>  dt_override = std::nullopt) const override;
     /// @copydoc mpclib::Model::infer
-    Vec infer(const Vec& x, const Vec& u, float dt_override = -1) const override;
+    Vec infer(const Vec& x, const Vec& u, std::optional<float> dt_override = std::nullopt) const override;
 
     /**
      * @brief Get the parameters of the model.

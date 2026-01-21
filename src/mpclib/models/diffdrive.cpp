@@ -1,6 +1,5 @@
 #include "mpclib/models/diffdrive.h"
 #include "mpclib/utils.h"
-#include "hpipm/hpipm_s_ocp_qp.h"
 
 using namespace mpclib;
 
@@ -15,9 +14,9 @@ DifferentialDriveModel::DifferentialDriveModel(const Params& params) : params_(p
 static constexpr double ratio = 0.5f;
 
 // TODO: implement continuous acceleration model
-ADVec DifferentialDriveModel::autodiff(const ADVec& x, const ADVec& u, double dt_override) const {
+ADVec DifferentialDriveModel::autodiff(const ADVec& x, const ADVec& u, std::optional<double> dt_override) const {
     ADVec xdot(5);
-    auto dt = dt_override < 0 ? params_.dt : dt_override;
+    auto dt = dt_override.value_or(static_cast<double>(params_.dt));
     auto dvl = u[0] * dt;
     auto dvr = u[1] * dt;
     auto vl = x[3] + ratio * dvl;
@@ -32,9 +31,9 @@ ADVec DifferentialDriveModel::autodiff(const ADVec& x, const ADVec& u, double dt
     return xdot;
 }
 
-Vec DifferentialDriveModel::infer(const Vec& x, const Vec& u, float dt_override) const {
+Vec DifferentialDriveModel::infer(const Vec& x, const Vec& u, std::optional<float> dt_override) const {
     Vec xdot(5);
-    float dt = dt_override < 0 ? params_.dt : dt_override;
+    float dt = dt_override.value_or(params_.dt);
     float dvl = u[0] * dt;
     float dvr = u[1] * dt;
     float vl = x[3] + ratio * dvl;

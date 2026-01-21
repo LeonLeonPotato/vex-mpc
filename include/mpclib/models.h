@@ -1,6 +1,6 @@
 /**
  * @file models.h
- * @author Leon
+ * @author Lena
  * @brief All models provided by the library
  * @date 2025-04-20
  */

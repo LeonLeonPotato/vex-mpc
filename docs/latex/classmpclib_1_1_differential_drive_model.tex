@@ -12,7 +12,7 @@ A model representing a differential drive robot.
 Inheritance diagram for mpclib::\+Differential\+Drive\+Model:\+\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=3.000000cm]{classmpclib_1_1_differential_drive_model}
+\includegraphics[height=2.000000cm]{classmpclib_1_1_differential_drive_model}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Classes}
@@ -25,23 +25,20 @@ struct \doxymbox{\hyperlink{structmpclib_1_1_differential_drive_model_1_1_params
 \item 
 \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_ae64eba0cf1ef704e0f5e79660c0072aa}{Differential\+Drive\+Model}} (const \doxymbox{\hyperlink{structmpclib_1_1_differential_drive_model_1_1_params}{Params}} \&\doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_a213c6ffd0b71e49b590ad377d5b9fdae}{params}})
 \begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classmpclib_1_1_differential_drive_model}{Differential\+Drive\+Model}. \end{DoxyCompactList}\item 
-\doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}} \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_aa229d9835d10933ce887e54bb8bfdc8c}{autodiff}} (const \doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}} \&x, const \doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}} \&u, double dt\+\_\+override=-\/1) const override
+constexpr int \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_a591600ead43f1e1188878e4b50ef9b0d}{state\+\_\+size}} () const override
+\begin{DoxyCompactList}\small\item\em Get the size of the state vector. \end{DoxyCompactList}\item 
+constexpr int \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_adc95b1e87681d8dee41e66575b20926f}{action\+\_\+size}} () const override
+\begin{DoxyCompactList}\small\item\em Get the size of the action vector. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}} \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_afa6439696f8684f8f648678d06c93fdc}{autodiff}} (const \doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}} \&x, const \doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}} \&u, std::\+optional$<$ double $>$ dt\+\_\+override=std::\+nullopt) const override
 \begin{DoxyCompactList}\small\item\em Predict the next state using the model dynamics, with automatic differentiation support.    \end{DoxyCompactList}\item 
-\doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_a3135dfe0ffd3d4831d51d047c2ae6f72}{infer}} (const \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} \&x, const \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} \&u, float dt\+\_\+override=-\/1) const override
+\doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_a0084b98bb7775f089e8e850683b26a6f}{infer}} (const \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} \&x, const \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} \&u, std::\+optional$<$ float $>$ dt\+\_\+override=std::\+nullopt) const override
 \begin{DoxyCompactList}\small\item\em Predict the next state using the model dynamics.    \end{DoxyCompactList}\item 
 const \doxymbox{\hyperlink{structmpclib_1_1_differential_drive_model_1_1_params}{Params}} \& \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_a213c6ffd0b71e49b590ad377d5b9fdae}{params}} () const
 \begin{DoxyCompactList}\small\item\em Get the parameters of the model. \end{DoxyCompactList}\item 
-const Base\+Params \& \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_a3bd6e6d9dbdc92fff15bb6a7ada37898}{get\+\_\+params}} () const override
+const \doxymbox{\hyperlink{structmpclib_1_1_model_1_1_base_params}{Base\+Params}} \& \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_a3bd6e6d9dbdc92fff15bb6a7ada37898}{get\+\_\+params}} () const override
 \begin{DoxyCompactList}\small\item\em Get the model parameters.    \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_a89e9a212a8edda836ebda272ad4b8f08}{set\+\_\+params}} (const \doxymbox{\hyperlink{structmpclib_1_1_differential_drive_model_1_1_params}{Params}} \&\doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_a213c6ffd0b71e49b590ad377d5b9fdae}{params}})
 \begin{DoxyCompactList}\small\item\em Set the parameters of the model. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{classmpclib_1_1_drive_model}{mpclib::\+\+Drive\+Model}}}
-\begin{DoxyCompactItemize}
-\item 
-constexpr int \doxymbox{\hyperlink{classmpclib_1_1_drive_model_ac6335c0380711e8d93fafd75cef84a72}{state\+\_\+size}} () const override
-\begin{DoxyCompactList}\small\item\em Returns the number of states variables in the model.    \end{DoxyCompactList}\item 
-constexpr int \doxymbox{\hyperlink{classmpclib_1_1_drive_model_a24c0a122053797f2615929d8a6ccb26f}{action\+\_\+size}} () const override
-\begin{DoxyCompactList}\small\item\em Returns the number of action variables in the model.    \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{classmpclib_1_1_model}{mpclib::\+\+Model}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -58,19 +55,16 @@ virtual const \doxymbox{\hyperlink{namespacempclib_a468a21481f81f1672eb32fbda78c
 \doxysubsubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
+static constexpr int \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_a24560759de006d1b075e0271bf609210}{STATE\+\_\+\+SIZE}} = 5
+\item 
+static constexpr int \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_af1b8642a05da20bceebf2ef236cca932}{ACTION\+\_\+\+SIZE}} = 2
+\item 
 static constexpr int \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_a207f8a9ea363e795b1aee9fc73e9f213}{GENERAL\+\_\+\+CONSTRAINTS\+\_\+\+SIZE}} = 2
 \begin{DoxyCompactList}\small\item\em left wheel speed, right wheel speed \end{DoxyCompactList}\item 
 static constexpr int \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_a48bbb7faed549d94c98d7083cbb83291}{STATE\+\_\+\+CONSTRAINTS\+\_\+\+SIZE}} = 0
 \begin{DoxyCompactList}\small\item\em No state box constraints. \end{DoxyCompactList}\item 
 static constexpr int \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model_af1aed835f4954bbe8dae23cb2d7f2718}{ACTION\+\_\+\+CONSTRAINTS\+\_\+\+SIZE}} = 0
 \begin{DoxyCompactList}\small\item\em No action box constraints. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Static Public Attributes inherited from \doxymbox{\hyperlink{classmpclib_1_1_drive_model}{mpclib::\+\+Drive\+Model}}}
-\begin{DoxyCompactItemize}
-\item 
-static constexpr int \doxymbox{\hyperlink{classmpclib_1_1_drive_model_a35aca59cc748223127101bc7644261e1}{STATE\+\_\+\+SIZE}} = 5
-\item 
-static constexpr int \doxymbox{\hyperlink{classmpclib_1_1_drive_model_a71863fd9ab7f66df75e1d97b44d81f6a}{ACTION\+\_\+\+SIZE}} = 2
-\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Protected Attributes inherited from \doxymbox{\hyperlink{classmpclib_1_1_model}{mpclib::\+\+Model}}}
 \begin{DoxyCompactItemize}
@@ -90,14 +84,14 @@ std::\+vector$<$ \doxymbox{\hyperlink{structmpclib_1_1_constraint}{Constraint}} 
 \doxysubsection{Detailed Description}
 A model representing a differential drive robot. 
 
-This class implements the dynamics of a differential drive system, such as a typical two-\/wheeled ground robot. It extends the \doxylink{classmpclib_1_1_drive_model}{Drive\+Model} base class and defines both the dynamics and constraints for the system.
+This class implements the dynamics of a differential drive system, such as a typical two-\/wheeled ground robot. It extends the Drive\+Model base class and defines both the dynamics and constraints for the system.
 
 The model supports general constraints on the individual wheel speeds (left and right), which are derived from the maximum allowed drivetrain speed. It does not impose box constraints on the state or action vectors directly.
 
 The model parameters define physical properties such as drivetrain width, max wheel speed, and acceleration behavior.
 
 \begin{DoxySeeAlso}{See also}
-\doxylink{classmpclib_1_1_drive_model}{mpclib::\+\+Drive\+Model} 
+mpclib::\+\+Drive\+Model 
 \end{DoxySeeAlso}
 
 
@@ -124,11 +118,28 @@ Constructor for the \doxylink{classmpclib_1_1_differential_drive_model}{Differen
 \label{doc-func-members}
 \Hypertarget{classmpclib_1_1_differential_drive_model_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classmpclib_1_1_differential_drive_model_aa229d9835d10933ce887e54bb8bfdc8c}\index{mpclib::DifferentialDriveModel@{mpclib::DifferentialDriveModel}!autodiff@{autodiff}}
+\Hypertarget{classmpclib_1_1_differential_drive_model_adc95b1e87681d8dee41e66575b20926f}\index{mpclib::DifferentialDriveModel@{mpclib::DifferentialDriveModel}!action\_size@{action\_size}}
+\index{action\_size@{action\_size}!mpclib::DifferentialDriveModel@{mpclib::DifferentialDriveModel}}
+\doxysubsubsection{\texorpdfstring{action\_size()}{action\_size()}}
+{\footnotesize\ttfamily \label{classmpclib_1_1_differential_drive_model_adc95b1e87681d8dee41e66575b20926f} 
+int mpclib::\+\+Differential\+Drive\+Model::\+action\+\_\+size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the size of the action vector. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily constexpr int} The size of the action vector 
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{classmpclib_1_1_model_a051a37c3e18fab91f0b8b4abcab1813e}{mpclib::\+\+Model}}.
+
+\Hypertarget{classmpclib_1_1_differential_drive_model_afa6439696f8684f8f648678d06c93fdc}\index{mpclib::DifferentialDriveModel@{mpclib::DifferentialDriveModel}!autodiff@{autodiff}}
 \index{autodiff@{autodiff}!mpclib::DifferentialDriveModel@{mpclib::DifferentialDriveModel}}
 \doxysubsubsection{\texorpdfstring{autodiff()}{autodiff()}}
-{\footnotesize\ttfamily \label{classmpclib_1_1_differential_drive_model_aa229d9835d10933ce887e54bb8bfdc8c} 
-\doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}} Differential\+Drive\+Model::\+autodiff (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}} \&}]{x}{, }\item[{const \doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}} \&}]{u}{, }\item[{double}]{dt\+\_\+override}{ = {\ttfamily -\/1}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classmpclib_1_1_differential_drive_model_afa6439696f8684f8f648678d06c93fdc} 
+\doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}} Differential\+Drive\+Model::\+autodiff (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}} \&}]{x}{, }\item[{const \doxymbox{\hyperlink{namespacempclib_a9f1bc34a6fafae00a36596e52bf1a12d}{ADVec}} \&}]{u}{, }\item[{std::\+optional$<$ double $>$}]{dt\+\_\+override}{ = {\ttfamily std:\+:\+nullopt}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -142,7 +153,7 @@ This function is used to compute the jacobian of the model dynamics using autodi
 \hline
 {\em u} & Input action \\
 \hline
-{\em dt\+\_\+override} & Override the time step for this prediction. If negative, the default time step from the model parameters is used. \\
+{\em dt\+\_\+override} & Override the time step for this prediction. If is nullopt, use the model\textquotesingle{}s default time step. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -150,13 +161,13 @@ This function is used to compute the jacobian of the model dynamics using autodi
 \end{DoxyReturn}
 
 
-Implements \doxymbox{\hyperlink{classmpclib_1_1_model_a139cee651ab6dfad56c9f7950340f559}{mpclib::\+\+Model}}.
+Implements \doxymbox{\hyperlink{classmpclib_1_1_model_ace060ee26806a36e6f75fac73e3e7b8e}{mpclib::\+\+Model}}.
 
 \Hypertarget{classmpclib_1_1_differential_drive_model_a3bd6e6d9dbdc92fff15bb6a7ada37898}\index{mpclib::DifferentialDriveModel@{mpclib::DifferentialDriveModel}!get\_params@{get\_params}}
 \index{get\_params@{get\_params}!mpclib::DifferentialDriveModel@{mpclib::DifferentialDriveModel}}
 \doxysubsubsection{\texorpdfstring{get\_params()}{get\_params()}}
 {\footnotesize\ttfamily \label{classmpclib_1_1_differential_drive_model_a3bd6e6d9dbdc92fff15bb6a7ada37898} 
-const Base\+Params \& mpclib::\+\+Differential\+Drive\+Model::\+get\+\_\+params (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+const \doxymbox{\hyperlink{structmpclib_1_1_model_1_1_base_params}{Base\+Params}} \& mpclib::\+\+Differential\+Drive\+Model::\+get\+\_\+params (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -169,11 +180,11 @@ Get the model parameters.
 
 Implements \doxymbox{\hyperlink{classmpclib_1_1_model_addde221b3a67756e29284989f2092ce9}{mpclib::\+\+Model}}.
 
-\Hypertarget{classmpclib_1_1_differential_drive_model_a3135dfe0ffd3d4831d51d047c2ae6f72}\index{mpclib::DifferentialDriveModel@{mpclib::DifferentialDriveModel}!infer@{infer}}
+\Hypertarget{classmpclib_1_1_differential_drive_model_a0084b98bb7775f089e8e850683b26a6f}\index{mpclib::DifferentialDriveModel@{mpclib::DifferentialDriveModel}!infer@{infer}}
 \index{infer@{infer}!mpclib::DifferentialDriveModel@{mpclib::DifferentialDriveModel}}
 \doxysubsubsection{\texorpdfstring{infer()}{infer()}}
-{\footnotesize\ttfamily \label{classmpclib_1_1_differential_drive_model_a3135dfe0ffd3d4831d51d047c2ae6f72} 
-\doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} Differential\+Drive\+Model::\+infer (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} \&}]{x}{, }\item[{const \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} \&}]{u}{, }\item[{float}]{dt\+\_\+override}{ = {\ttfamily -\/1}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classmpclib_1_1_differential_drive_model_a0084b98bb7775f089e8e850683b26a6f} 
+\doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} Differential\+Drive\+Model::\+infer (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} \&}]{x}{, }\item[{const \doxymbox{\hyperlink{namespacempclib_a081fd055da31c51d378a3d20ad4419a8}{Vec}} \&}]{u}{, }\item[{std::\+optional$<$ float $>$}]{dt\+\_\+override}{ = {\ttfamily std:\+:\+nullopt}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -185,7 +196,7 @@ Predict the next state using the model dynamics.
 \hline
 {\em u} & Input action \\
 \hline
-{\em dt\+\_\+override} & Override the time step for this prediction. If negative, the default time step from the model parameters is used. \\
+{\em dt\+\_\+override} & Override the time step for this prediction. If is nullopt, use the model\textquotesingle{}s default time step. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -193,7 +204,7 @@ Predict the next state using the model dynamics.
 \end{DoxyReturn}
 
 
-Implements \doxymbox{\hyperlink{classmpclib_1_1_model_a866622a1db5e0762e60a3149e5bea84f}{mpclib::\+\+Model}}.
+Implements \doxymbox{\hyperlink{classmpclib_1_1_model_a8e844c57a4f86ce793511e1c771e39a6}{mpclib::\+\+Model}}.
 
 \Hypertarget{classmpclib_1_1_differential_drive_model_a213c6ffd0b71e49b590ad377d5b9fdae}\index{mpclib::DifferentialDriveModel@{mpclib::DifferentialDriveModel}!params@{params}}
 \index{params@{params}!mpclib::DifferentialDriveModel@{mpclib::DifferentialDriveModel}}
@@ -229,6 +240,23 @@ Set the parameters of the model.
 \begin{DoxySeeAlso}{See also}
 \doxylink{structmpclib_1_1_differential_drive_model_1_1_params}{mpclib::\+\+Differential\+Drive\+Model::\+\+Params} 
 \end{DoxySeeAlso}
+\Hypertarget{classmpclib_1_1_differential_drive_model_a591600ead43f1e1188878e4b50ef9b0d}\index{mpclib::DifferentialDriveModel@{mpclib::DifferentialDriveModel}!state\_size@{state\_size}}
+\index{state\_size@{state\_size}!mpclib::DifferentialDriveModel@{mpclib::DifferentialDriveModel}}
+\doxysubsubsection{\texorpdfstring{state\_size()}{state\_size()}}
+{\footnotesize\ttfamily \label{classmpclib_1_1_differential_drive_model_a591600ead43f1e1188878e4b50ef9b0d} 
+int mpclib::\+\+Differential\+Drive\+Model::\+state\+\_\+size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the size of the state vector. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily constexpr int} The size of the state vector 
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{classmpclib_1_1_model_a58739634bf1d03f0069db9751fc81c91}{mpclib::\+\+Model}}.
+
 
 
 \label{doc-variable-members}
@@ -243,6 +271,12 @@ int mpclib::\+\+Differential\+Drive\+Model::\+\+ACTION\+\_\+\+CONSTRAINTS\+\_\+\
 
 
 No action box constraints. 
+
+\Hypertarget{classmpclib_1_1_differential_drive_model_af1b8642a05da20bceebf2ef236cca932}\index{mpclib::DifferentialDriveModel@{mpclib::DifferentialDriveModel}!ACTION\_SIZE@{ACTION\_SIZE}}
+\index{ACTION\_SIZE@{ACTION\_SIZE}!mpclib::DifferentialDriveModel@{mpclib::DifferentialDriveModel}}
+\doxysubsubsection{\texorpdfstring{ACTION\_SIZE}{ACTION\_SIZE}}
+{\footnotesize\ttfamily \label{classmpclib_1_1_differential_drive_model_af1b8642a05da20bceebf2ef236cca932} 
+int mpclib::\+\+Differential\+Drive\+Model::\+\+ACTION\+\_\+\+SIZE = 2\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
 
 \Hypertarget{classmpclib_1_1_differential_drive_model_a207f8a9ea363e795b1aee9fc73e9f213}\index{mpclib::DifferentialDriveModel@{mpclib::DifferentialDriveModel}!GENERAL\_CONSTRAINTS\_SIZE@{GENERAL\_CONSTRAINTS\_SIZE}}
 \index{GENERAL\_CONSTRAINTS\_SIZE@{GENERAL\_CONSTRAINTS\_SIZE}!mpclib::DifferentialDriveModel@{mpclib::DifferentialDriveModel}}
@@ -263,6 +297,12 @@ int mpclib::\+\+Differential\+Drive\+Model::\+\+STATE\+\_\+\+CONSTRAINTS\+\_\+\+
 
 
 No state box constraints. 
+
+\Hypertarget{classmpclib_1_1_differential_drive_model_a24560759de006d1b075e0271bf609210}\index{mpclib::DifferentialDriveModel@{mpclib::DifferentialDriveModel}!STATE\_SIZE@{STATE\_SIZE}}
+\index{STATE\_SIZE@{STATE\_SIZE}!mpclib::DifferentialDriveModel@{mpclib::DifferentialDriveModel}}
+\doxysubsubsection{\texorpdfstring{STATE\_SIZE}{STATE\_SIZE}}
+{\footnotesize\ttfamily \label{classmpclib_1_1_differential_drive_model_a24560759de006d1b075e0271bf609210} 
+int mpclib::\+\+Differential\+Drive\+Model::\+\+STATE\+\_\+\+SIZE = 5\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
 
 
 

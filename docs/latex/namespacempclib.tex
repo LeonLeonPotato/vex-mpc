@@ -7,8 +7,6 @@ struct \doxymbox{\hyperlink{structmpclib_1_1_constraint}{Constraint}}
 \begin{DoxyCompactList}\small\item\em Represents a lower bound \& upper bound constraint on a variable. \end{DoxyCompactList}\item 
 class \doxymbox{\hyperlink{classmpclib_1_1_model}{Model}}
 \begin{DoxyCompactList}\small\item\em Abstract base class for dynamic models used in model predictive control (MPC). \end{DoxyCompactList}\item 
-class \doxymbox{\hyperlink{classmpclib_1_1_drive_model}{Drive\+Model}}
-\begin{DoxyCompactList}\small\item\em Base class for drive models in the library. \end{DoxyCompactList}\item 
 class \doxymbox{\hyperlink{classmpclib_1_1_differential_drive_model}{Differential\+Drive\+Model}}
 \begin{DoxyCompactList}\small\item\em A model representing a differential drive robot. \end{DoxyCompactList}\item 
 struct \doxymbox{\hyperlink{structmpclib_1_1_o_c_p_params}{OCPParams}}
@@ -30,7 +28,7 @@ using \doxymbox{\hyperlink{namespacempclib_ab74cf1ce906e538ba70a344c1db9dd5e}{SP
 \begin{DoxyCompactItemize}
 \item 
 {\footnotesize template$<$typename T, typename = std::\+enable\+\_\+if\+\_\+t$<$std::\+is\+\_\+arithmetic$<$\+T$>$::\+value$>$$>$ }\\static T \doxymbox{\hyperlink{namespacempclib_ab6bbb63786365de7b0c0653c363b0fd8}{sinc}} (T x)
-\begin{DoxyCompactList}\small\item\em Numerically stable normalized sinc function. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Numerically stable $ \operatorname{sinc} $ function. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T, typename = std::\+enable\+\_\+if\+\_\+t$<$std::\+is\+\_\+arithmetic$<$\+T$>$::\+value$>$$>$ }\\static float \doxymbox{\hyperlink{namespacempclib_a9e0945d7e2b4199bfc9b0aa046b2bbae}{average}} (const std::\+vector$<$ T $>$ \&vec)
 \begin{DoxyCompactList}\small\item\em Mean value of a sequence using Kahan compensated summation. \end{DoxyCompactList}\item 
 static float \doxymbox{\hyperlink{namespacempclib_acad7f29e2a365494c9ceb565877cca16}{modfix}} (float x, float y)
@@ -164,7 +162,7 @@ T mpclib::\+sinc (\begin{DoxyParamCaption}\item[{T}]{x}{}\end{DoxyParamCaption})
 
 
 
-Numerically stable normalized sinc function. 
+Numerically stable $ \operatorname{sinc} $ function. 
 
 Computes $ \mathrm{sinc}(x) = \sin(x)/x $. ~\newline
  For $ |x| < 10^{-3} $ a 4th‑order Taylor series approximation is returned to avoid catastrophic cancellation:\+   \[    \mathrm{sinc}(x) \approx 1 - \frac{x^{2}}{6}.

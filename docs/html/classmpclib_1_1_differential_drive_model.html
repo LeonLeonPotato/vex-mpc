@@ -110,7 +110,6 @@ Inheritance diagram for mpclib::DifferentialDriveModel:</div>
  <div class="center">
   <img src="classmpclib_1_1_differential_drive_model.png" usemap="#mpclib_3A_3ADifferentialDriveModel_map" alt=""/>
   <map id="mpclib_3A_3ADifferentialDriveModel_map" name="mpclib_3A_3ADifferentialDriveModel_map">
-<area href="classmpclib_1_1_drive_model.html" title="Base class for drive models in the library." alt="mpclib::DriveModel" shape="rect" coords="0,56,182,80"/>
 <area href="classmpclib_1_1_model.html" title="Abstract base class for dynamic models used in model predictive control (MPC)." alt="mpclib::Model" shape="rect" coords="0,0,182,24"/>
   </map>
 </div></div>
@@ -124,21 +123,20 @@ Classes</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae64eba0cf1ef704e0f5e79660c0072aa" id="r_ae64eba0cf1ef704e0f5e79660c0072aa"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae64eba0cf1ef704e0f5e79660c0072aa">DifferentialDriveModel</a> (const <a class="el" href="structmpclib_1_1_differential_drive_model_1_1_params.html">Params</a> &amp;<a class="el" href="#a213c6ffd0b71e49b590ad377d5b9fdae">params</a>)</td></tr>
 <tr class="memdesc:ae64eba0cf1ef704e0f5e79660c0072aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="classmpclib_1_1_differential_drive_model.html" title="A model representing a differential drive robot.">DifferentialDriveModel</a>.  <br /></td></tr>
-<tr class="memitem:aa229d9835d10933ce887e54bb8bfdc8c" id="r_aa229d9835d10933ce887e54bb8bfdc8c"><td class="memItemLeft"><a class="el" href="namespacempclib.html#a9f1bc34a6fafae00a36596e52bf1a12d">ADVec</a>&#160;</td><td class="memItemRight"><a class="el" href="#aa229d9835d10933ce887e54bb8bfdc8c">autodiff</a> (const <a class="el" href="namespacempclib.html#a9f1bc34a6fafae00a36596e52bf1a12d">ADVec</a> &amp;x, const <a class="el" href="namespacempclib.html#a9f1bc34a6fafae00a36596e52bf1a12d">ADVec</a> &amp;u, double dt_override=-1) const override</td></tr>
-<tr class="memdesc:aa229d9835d10933ce887e54bb8bfdc8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Predict the next state using the model dynamics, with automatic differentiation support.     <br /></td></tr>
-<tr class="memitem:a3135dfe0ffd3d4831d51d047c2ae6f72" id="r_a3135dfe0ffd3d4831d51d047c2ae6f72"><td class="memItemLeft"><a class="el" href="namespacempclib.html#a081fd055da31c51d378a3d20ad4419a8">Vec</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3135dfe0ffd3d4831d51d047c2ae6f72">infer</a> (const <a class="el" href="namespacempclib.html#a081fd055da31c51d378a3d20ad4419a8">Vec</a> &amp;x, const <a class="el" href="namespacempclib.html#a081fd055da31c51d378a3d20ad4419a8">Vec</a> &amp;u, float dt_override=-1) const override</td></tr>
-<tr class="memdesc:a3135dfe0ffd3d4831d51d047c2ae6f72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Predict the next state using the model dynamics.     <br /></td></tr>
+<tr class="memitem:a591600ead43f1e1188878e4b50ef9b0d" id="r_a591600ead43f1e1188878e4b50ef9b0d"><td class="memItemLeft">constexpr int&#160;</td><td class="memItemRight"><a class="el" href="#a591600ead43f1e1188878e4b50ef9b0d">state_size</a> () const override</td></tr>
+<tr class="memdesc:a591600ead43f1e1188878e4b50ef9b0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the size of the state vector.  <br /></td></tr>
+<tr class="memitem:adc95b1e87681d8dee41e66575b20926f" id="r_adc95b1e87681d8dee41e66575b20926f"><td class="memItemLeft">constexpr int&#160;</td><td class="memItemRight"><a class="el" href="#adc95b1e87681d8dee41e66575b20926f">action_size</a> () const override</td></tr>
+<tr class="memdesc:adc95b1e87681d8dee41e66575b20926f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the size of the action vector.  <br /></td></tr>
+<tr class="memitem:afa6439696f8684f8f648678d06c93fdc" id="r_afa6439696f8684f8f648678d06c93fdc"><td class="memItemLeft"><a class="el" href="namespacempclib.html#a9f1bc34a6fafae00a36596e52bf1a12d">ADVec</a>&#160;</td><td class="memItemRight"><a class="el" href="#afa6439696f8684f8f648678d06c93fdc">autodiff</a> (const <a class="el" href="namespacempclib.html#a9f1bc34a6fafae00a36596e52bf1a12d">ADVec</a> &amp;x, const <a class="el" href="namespacempclib.html#a9f1bc34a6fafae00a36596e52bf1a12d">ADVec</a> &amp;u, std::optional&lt; double &gt; dt_override=std::nullopt) const override</td></tr>
+<tr class="memdesc:afa6439696f8684f8f648678d06c93fdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Predict the next state using the model dynamics, with automatic differentiation support.     <br /></td></tr>
+<tr class="memitem:a0084b98bb7775f089e8e850683b26a6f" id="r_a0084b98bb7775f089e8e850683b26a6f"><td class="memItemLeft"><a class="el" href="namespacempclib.html#a081fd055da31c51d378a3d20ad4419a8">Vec</a>&#160;</td><td class="memItemRight"><a class="el" href="#a0084b98bb7775f089e8e850683b26a6f">infer</a> (const <a class="el" href="namespacempclib.html#a081fd055da31c51d378a3d20ad4419a8">Vec</a> &amp;x, const <a class="el" href="namespacempclib.html#a081fd055da31c51d378a3d20ad4419a8">Vec</a> &amp;u, std::optional&lt; float &gt; dt_override=std::nullopt) const override</td></tr>
+<tr class="memdesc:a0084b98bb7775f089e8e850683b26a6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Predict the next state using the model dynamics.     <br /></td></tr>
 <tr class="memitem:a213c6ffd0b71e49b590ad377d5b9fdae" id="r_a213c6ffd0b71e49b590ad377d5b9fdae"><td class="memItemLeft">const <a class="el" href="structmpclib_1_1_differential_drive_model_1_1_params.html">Params</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a213c6ffd0b71e49b590ad377d5b9fdae">params</a> () const</td></tr>
 <tr class="memdesc:a213c6ffd0b71e49b590ad377d5b9fdae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the parameters of the model.  <br /></td></tr>
-<tr class="memitem:a3bd6e6d9dbdc92fff15bb6a7ada37898" id="r_a3bd6e6d9dbdc92fff15bb6a7ada37898"><td class="memItemLeft">const BaseParams &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a3bd6e6d9dbdc92fff15bb6a7ada37898">get_params</a> () const override</td></tr>
+<tr class="memitem:a3bd6e6d9dbdc92fff15bb6a7ada37898" id="r_a3bd6e6d9dbdc92fff15bb6a7ada37898"><td class="memItemLeft">const <a class="el" href="structmpclib_1_1_model_1_1_base_params.html">BaseParams</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a3bd6e6d9dbdc92fff15bb6a7ada37898">get_params</a> () const override</td></tr>
 <tr class="memdesc:a3bd6e6d9dbdc92fff15bb6a7ada37898"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the model parameters.     <br /></td></tr>
 <tr class="memitem:a89e9a212a8edda836ebda272ad4b8f08" id="r_a89e9a212a8edda836ebda272ad4b8f08"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a89e9a212a8edda836ebda272ad4b8f08">set_params</a> (const <a class="el" href="structmpclib_1_1_differential_drive_model_1_1_params.html">Params</a> &amp;<a class="el" href="#a213c6ffd0b71e49b590ad377d5b9fdae">params</a>)</td></tr>
 <tr class="memdesc:a89e9a212a8edda836ebda272ad4b8f08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the parameters of the model.  <br /></td></tr>
-<tr class="inherit_header pub_methods_classmpclib_1_1_drive_model"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classmpclib_1_1_drive_model')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="classmpclib_1_1_drive_model.html">mpclib::DriveModel</a></td></tr>
-<tr class="memitem:ac6335c0380711e8d93fafd75cef84a72 inherit pub_methods_classmpclib_1_1_drive_model" id="r_ac6335c0380711e8d93fafd75cef84a72"><td class="memItemLeft">constexpr int&#160;</td><td class="memItemRight"><a class="el" href="classmpclib_1_1_drive_model.html#ac6335c0380711e8d93fafd75cef84a72">state_size</a> () const override</td></tr>
-<tr class="memdesc:ac6335c0380711e8d93fafd75cef84a72 inherit pub_methods_classmpclib_1_1_drive_model"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of states variables in the model.     <br /></td></tr>
-<tr class="memitem:a24c0a122053797f2615929d8a6ccb26f inherit pub_methods_classmpclib_1_1_drive_model" id="r_a24c0a122053797f2615929d8a6ccb26f"><td class="memItemLeft">constexpr int&#160;</td><td class="memItemRight"><a class="el" href="classmpclib_1_1_drive_model.html#a24c0a122053797f2615929d8a6ccb26f">action_size</a> () const override</td></tr>
-<tr class="memdesc:a24c0a122053797f2615929d8a6ccb26f inherit pub_methods_classmpclib_1_1_drive_model"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of action variables in the model.     <br /></td></tr>
 <tr class="inherit_header pub_methods_classmpclib_1_1_model"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classmpclib_1_1_model')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="classmpclib_1_1_model.html">mpclib::Model</a></td></tr>
 <tr class="memitem:a04f2f7926590be1a727dff75d749883c inherit pub_methods_classmpclib_1_1_model" id="r_a04f2f7926590be1a727dff75d749883c"><td class="memItemLeft">virtual const std::vector&lt; <a class="el" href="structmpclib_1_1_constraint.html">Constraint</a> &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="classmpclib_1_1_model.html#a04f2f7926590be1a727dff75d749883c">state_constraints</a> () const</td></tr>
 <tr class="memdesc:a04f2f7926590be1a727dff75d749883c inherit pub_methods_classmpclib_1_1_model"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the state constraints.  <br /></td></tr>
@@ -153,15 +151,14 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
+<tr class="memitem:a24560759de006d1b075e0271bf609210" id="r_a24560759de006d1b075e0271bf609210"><td class="memItemLeft">static constexpr int&#160;</td><td class="memItemRight"><a class="el" href="#a24560759de006d1b075e0271bf609210">STATE_SIZE</a> = 5</td></tr>
+<tr class="memitem:af1b8642a05da20bceebf2ef236cca932" id="r_af1b8642a05da20bceebf2ef236cca932"><td class="memItemLeft">static constexpr int&#160;</td><td class="memItemRight"><a class="el" href="#af1b8642a05da20bceebf2ef236cca932">ACTION_SIZE</a> = 2</td></tr>
 <tr class="memitem:a207f8a9ea363e795b1aee9fc73e9f213" id="r_a207f8a9ea363e795b1aee9fc73e9f213"><td class="memItemLeft">static constexpr int&#160;</td><td class="memItemRight"><a class="el" href="#a207f8a9ea363e795b1aee9fc73e9f213">GENERAL_CONSTRAINTS_SIZE</a> = 2</td></tr>
 <tr class="memdesc:a207f8a9ea363e795b1aee9fc73e9f213"><td class="mdescLeft">&#160;</td><td class="mdescRight">left wheel speed, right wheel speed  <br /></td></tr>
 <tr class="memitem:a48bbb7faed549d94c98d7083cbb83291" id="r_a48bbb7faed549d94c98d7083cbb83291"><td class="memItemLeft">static constexpr int&#160;</td><td class="memItemRight"><a class="el" href="#a48bbb7faed549d94c98d7083cbb83291">STATE_CONSTRAINTS_SIZE</a> = 0</td></tr>
 <tr class="memdesc:a48bbb7faed549d94c98d7083cbb83291"><td class="mdescLeft">&#160;</td><td class="mdescRight">No state box constraints.  <br /></td></tr>
 <tr class="memitem:af1aed835f4954bbe8dae23cb2d7f2718" id="r_af1aed835f4954bbe8dae23cb2d7f2718"><td class="memItemLeft">static constexpr int&#160;</td><td class="memItemRight"><a class="el" href="#af1aed835f4954bbe8dae23cb2d7f2718">ACTION_CONSTRAINTS_SIZE</a> = 0</td></tr>
 <tr class="memdesc:af1aed835f4954bbe8dae23cb2d7f2718"><td class="mdescLeft">&#160;</td><td class="mdescRight">No action box constraints.  <br /></td></tr>
-<tr class="inherit_header pub_static_attribs_classmpclib_1_1_drive_model"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_static_attribs_classmpclib_1_1_drive_model')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Static Public Attributes inherited from <a class="el" href="classmpclib_1_1_drive_model.html">mpclib::DriveModel</a></td></tr>
-<tr class="memitem:a35aca59cc748223127101bc7644261e1 inherit pub_static_attribs_classmpclib_1_1_drive_model" id="r_a35aca59cc748223127101bc7644261e1"><td class="memItemLeft">static constexpr int&#160;</td><td class="memItemRight"><a class="el" href="classmpclib_1_1_drive_model.html#a35aca59cc748223127101bc7644261e1">STATE_SIZE</a> = 5</td></tr>
-<tr class="memitem:a71863fd9ab7f66df75e1d97b44d81f6a inherit pub_static_attribs_classmpclib_1_1_drive_model" id="r_a71863fd9ab7f66df75e1d97b44d81f6a"><td class="memItemLeft">static constexpr int&#160;</td><td class="memItemRight"><a class="el" href="classmpclib_1_1_drive_model.html#a71863fd9ab7f66df75e1d97b44d81f6a">ACTION_SIZE</a> = 2</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -179,10 +176,10 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A model representing a differential drive robot. </p>
-<p>This class implements the dynamics of a differential drive system, such as a typical two-wheeled ground robot. It extends the <a class="el" href="classmpclib_1_1_drive_model.html" title="Base class for drive models in the library.">DriveModel</a> base class and defines both the dynamics and constraints for the system.</p>
+<p>This class implements the dynamics of a differential drive system, such as a typical two-wheeled ground robot. It extends the DriveModel base class and defines both the dynamics and constraints for the system.</p>
 <p>The model supports general constraints on the individual wheel speeds (left and right), which are derived from the maximum allowed drivetrain speed. It does not impose box constraints on the state or action vectors directly.</p>
 <p>The model parameters define physical properties such as drivetrain width, max wheel speed, and acceleration behavior.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classmpclib_1_1_drive_model.html" title="Base class for drive models in the library.">mpclib::DriveModel</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>mpclib::DriveModel </dd></dl>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae64eba0cf1ef704e0f5e79660c0072aa" name="ae64eba0cf1ef704e0f5e79660c0072aa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae64eba0cf1ef704e0f5e79660c0072aa">&#9670;&#160;</a></span>DifferentialDriveModel()</h2>
@@ -210,8 +207,38 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="aa229d9835d10933ce887e54bb8bfdc8c" name="aa229d9835d10933ce887e54bb8bfdc8c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa229d9835d10933ce887e54bb8bfdc8c">&#9670;&#160;</a></span>autodiff()</h2>
+<a id="adc95b1e87681d8dee41e66575b20926f" name="adc95b1e87681d8dee41e66575b20926f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc95b1e87681d8dee41e66575b20926f">&#9670;&#160;</a></span>action_size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int mpclib::DifferentialDriveModel::action_size </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the size of the action vector. </p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">constexpr int</span> The size of the action vector </dd></dl>
+
+<p>Implements <a class="el" href="classmpclib_1_1_model.html#a051a37c3e18fab91f0b8b4abcab1813e">mpclib::Model</a>.</p>
+
+</div>
+</div>
+<a id="afa6439696f8684f8f648678d06c93fdc" name="afa6439696f8684f8f648678d06c93fdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa6439696f8684f8f648678d06c93fdc">&#9670;&#160;</a></span>autodiff()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -232,7 +259,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>dt_override</em></span><span class="paramdefsep"> = </span><span class="paramdefval">-1</span>&#160;) const</td>
+          <td class="paramtype">std::optional&lt; double &gt;</td>          <td class="paramname"><span class="paramname"><em>dt_override</em></span><span class="paramdefsep"> = </span><span class="paramdefval">std::nullopt</span>&#160;) const</td>
         </tr>
       </table>
   </td>
@@ -248,13 +275,13 @@ Additional Inherited Members</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">x</td><td>Input state </td></tr>
     <tr><td class="paramname">u</td><td>Input action </td></tr>
-    <tr><td class="paramname">dt_override</td><td>Override the time step for this prediction. If negative, the default time step from the model parameters is used. </td></tr>
+    <tr><td class="paramname">dt_override</td><td>Override the time step for this prediction. If is nullopt, use the model's default time step. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="namespacempclib.html#a9f1bc34a6fafae00a36596e52bf1a12d" title="Column vector for autodiff. Internal autodiff types are used.">ADVec</a> - Predicted next state with the model dynamics given the input and action    </dd></dl>
 
-<p>Implements <a class="el" href="classmpclib_1_1_model.html#a139cee651ab6dfad56c9f7950340f559">mpclib::Model</a>.</p>
+<p>Implements <a class="el" href="classmpclib_1_1_model.html#ace060ee26806a36e6f75fac73e3e7b8e">mpclib::Model</a>.</p>
 
 </div>
 </div>
@@ -268,7 +295,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const BaseParams &amp; mpclib::DifferentialDriveModel::get_params </td>
+          <td class="memname">const <a class="el" href="structmpclib_1_1_model_1_1_base_params.html">BaseParams</a> &amp; mpclib::DifferentialDriveModel::get_params </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -288,8 +315,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a3135dfe0ffd3d4831d51d047c2ae6f72" name="a3135dfe0ffd3d4831d51d047c2ae6f72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3135dfe0ffd3d4831d51d047c2ae6f72">&#9670;&#160;</a></span>infer()</h2>
+<a id="a0084b98bb7775f089e8e850683b26a6f" name="a0084b98bb7775f089e8e850683b26a6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0084b98bb7775f089e8e850683b26a6f">&#9670;&#160;</a></span>infer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -310,7 +337,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>dt_override</em></span><span class="paramdefsep"> = </span><span class="paramdefval">-1</span>&#160;) const</td>
+          <td class="paramtype">std::optional&lt; float &gt;</td>          <td class="paramname"><span class="paramname"><em>dt_override</em></span><span class="paramdefsep"> = </span><span class="paramdefval">std::nullopt</span>&#160;) const</td>
         </tr>
       </table>
   </td>
@@ -325,13 +352,13 @@ Additional Inherited Members</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">x</td><td>Input state </td></tr>
     <tr><td class="paramname">u</td><td>Input action </td></tr>
-    <tr><td class="paramname">dt_override</td><td>Override the time step for this prediction. If negative, the default time step from the model parameters is used. </td></tr>
+    <tr><td class="paramname">dt_override</td><td>Override the time step for this prediction. If is nullopt, use the model's default time step. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="namespacempclib.html#a081fd055da31c51d378a3d20ad4419a8" title="Column vector for Eigen, floating point is used.">Vec</a> - Predicted next state with the model dynamics given the input and action    </dd></dl>
 
-<p>Implements <a class="el" href="classmpclib_1_1_model.html#a866622a1db5e0762e60a3149e5bea84f">mpclib::Model</a>.</p>
+<p>Implements <a class="el" href="classmpclib_1_1_model.html#a8e844c57a4f86ce793511e1c771e39a6">mpclib::Model</a>.</p>
 
 </div>
 </div>
@@ -398,6 +425,36 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="a591600ead43f1e1188878e4b50ef9b0d" name="a591600ead43f1e1188878e4b50ef9b0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a591600ead43f1e1188878e4b50ef9b0d">&#9670;&#160;</a></span>state_size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int mpclib::DifferentialDriveModel::state_size </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the size of the state vector. </p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">constexpr int</span> The size of the state vector </dd></dl>
+
+<p>Implements <a class="el" href="classmpclib_1_1_model.html#a58739634bf1d03f0069db9751fc81c91">mpclib::Model</a>.</p>
+
+</div>
+</div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
 <a id="af1aed835f4954bbe8dae23cb2d7f2718" name="af1aed835f4954bbe8dae23cb2d7f2718"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af1aed835f4954bbe8dae23cb2d7f2718">&#9670;&#160;</a></span>ACTION_CONSTRAINTS_SIZE</h2>
@@ -420,6 +477,28 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>No action box constraints. </p>
+
+</div>
+</div>
+<a id="af1b8642a05da20bceebf2ef236cca932" name="af1b8642a05da20bceebf2ef236cca932"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1b8642a05da20bceebf2ef236cca932">&#9670;&#160;</a></span>ACTION_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int mpclib::DifferentialDriveModel::ACTION_SIZE = 2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -468,6 +547,28 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>No state box constraints. </p>
+
+</div>
+</div>
+<a id="a24560759de006d1b075e0271bf609210" name="a24560759de006d1b075e0271bf609210"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24560759de006d1b075e0271bf609210">&#9670;&#160;</a></span>STATE_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int mpclib::DifferentialDriveModel::STATE_SIZE = 5</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
